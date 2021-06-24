@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #f1f1f1;
+    box-sizing: border-box;
+}
+
+    /* NAV */
+
+.navbar-brand {
+    font-size: 40px;
+    font-family: 'Kaushan Script';
+}
+
+span {
+    font-family: 'Kaushan Script';
+    font-size: 90px;
+}
+
+.navbar-collapse {
+	font-size: 20px;
+}
+
+	/* HEADER */
+
+header {
+        background: url('../images/reflex1.jpg');
+        background-size: cover;
+        height: 65vh;
+        background-position: bottom;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+}
+
+#presentation h1 {
+	text-align: center;
+	margin-top: 240px;
+	font-weight: 300;
+	font-size: 60px;
+	color: #f1f1f1;
+	padding-bottom: 10px;
+}
+
+    /* CARDS */
+
+.card {
+    transition: .3s ease-out;
+}
+   
+.card:hover {
+    -webkit-box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.25);
+    box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.25);
+}
+
+.card-body a {
+    color: #000000;
+    text-decoration: none;
+    transition: .3s ease-out;
+}
+
+.card-body a:hover {
+    color: #0275d8;
+}
+
+    /* FOOTER */
+
+.footer {
+    background: #e9ecef;
+    padding: 10px 0 1px 0;
+}
+
