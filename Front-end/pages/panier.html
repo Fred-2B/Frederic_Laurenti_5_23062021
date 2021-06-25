@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orinoco | panier</title>
+    <title>Orinoco | votre panier</title>
     <!-- CSS BOOTSTRAP -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
     
@@ -21,16 +21,16 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="main-nav">
         <div class="container">
-            <a href="index.html" class="navbar-brand">Orinoco</a>
+            <a href="../index.html" class="navbar-brand">Orinoco</a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mr-1">
+                        <li class="nav-item mr-5">
                             <a href="../index.html" class="nav-link">Accueil</a>
                         </li>
-                        <li class="nav-item mr-1">
+                        <li class="nav-item mr-5">
                             <a href="#" class="nav-link">Panier</a>
                         </li>
                     </ul>
@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1>Bienvenue chez <span>Orinoco</span></h1>
+                        <h1><span>Orinoco</span></h1>
                     </div>
                 </div>
             </div>
@@ -54,11 +54,73 @@
     <section aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<div class="container-lg">
-				<h2 class="breadcrumb-item" aria-current="page">Votre panier</h2>
+				<h3 class="breadcrumb-item" aria-current="page">Votre panier</h3>
 			</div>
 		</ol>
 	</section>
 
+    <!-- FORMULAIRE -->
+<div class="container w-75">
+    <div class="card m-4">
+        <div id="formulaire">
+            <div class="container">
+                <div class="row">
+                    <div class="col md-6">
+                    <div class="title text-center">Veuillez remplir ce formulaire</div>
+                    </div>
+                </div>
+            </div>
+
+            <form action="#" method="post" accept-charset="UTF-8">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col md-6">
+                            <div>
+                                <label for="nom" class="m-0">Nom <em>*</em></label>
+                                <input type="text" name="nom" id="nom" required maxlength="50">
+                            </div>
+
+                            <div class="mt-2">
+                                <label for="site" class="m-0">Adresse <em>*</em></label>
+                                <input type="text" name="adresse" id="adresse" required>
+                            </div>
+                            
+                            <div class="mt-2">
+                                <label for="email" class="m-0">E-mail <em>*</em></label>
+                                <input type="email" name="email" id="email" required placeholder=" mail@domaine.com" maxlength="50">
+                            </div>
+                        </div>
+                    
+                        <div class="col md-6">
+                        <div>
+                                <label for="nom" class="m-0">Prenom <em>*</em></label>
+                                <input type="text" name="nom" id="nom" required maxlength="50">
+                            </div>
+
+                            <div class="mt-2">
+                                <label for="site" class="m-0">Ville <em>*</em></label>
+                                <input type="text" name="ville" id="ville" required>
+                            </div>
+
+                            <div class="mt-4">
+                                <input type="submit" value="Valider la commande" id="submit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container mb-4">
+                    <div class="row">
+                        <div class="col md-6 text-center mt-1">
+                            <div class="info font-weight-light">Votre adresse de messagerie ne sera pas publiée. Champs obligatoires <em>*</em></div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
     <!-- FOOTER -->
 
     <footer>
@@ -68,6 +130,10 @@
             </div>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
 
 </body>
 </html>

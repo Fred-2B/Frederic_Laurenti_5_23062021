@@ -6,28 +6,36 @@ body {
     box-sizing: border-box;
 }
 
+.breadcrumb-item {
+    font-family: 'Handlee', cursive;
+}
+
     /* NAV */
 
 .navbar-brand {
-    font-size: 40px;
+    font-size: 30px;
     font-family: 'Kaushan Script';
+}
+
+#navbarCollapse a {
+    font-size: 20px;
+}
+
+.navbar-toggler-icon {
+    font-size: 20px;
 }
 
 span {
     font-family: 'Kaushan Script';
-    font-size: 95px;
-}
-
-.navbar-collapse {
-	font-size: 20px;
+    font-size: 100px;
 }
 
 	/* HEADER */
 
 header {
-        background: url('../images/reflex1.jpg');
+        background: url('../images/reflex11.jpg');
         background-size: cover;
-        height: 60vh;
+        height: 50vh;
         background-position: bottom;
         background-attachment: fixed;
         background-repeat: no-repeat;
@@ -65,5 +73,49 @@ header {
 .footer {
     background: #e9ecef;
     padding: 10px 0 1px 0;
+}
+
+	/* FORMULAIRE */
+
+#formulaire {
+    margin-top: 20px;
+}
+
+form {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#formulaire .title {
+    font-family: 'Handlee', cursive;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+#formulaire em {
+    color: #ff0000;
+}
+
+#formulaire input {
+    padding: 8px 0;
+    background-color: #f1f1f1;
+    border-radius: 3px;
+    width: 100%;
+    font-family: 'Arial';
+    border: 1px solid;
+}
+
+#formulaire #submit {
+    margin-top: 8px;
+    width: 100%;
+    padding: 8px 0;
+    border-radius: 3px;
+    background-color: #f1f1f1;
+}
+
+#formulaire #submit:hover {
+    background-color: #baf8ba;
+    color: #000000;
+    transition: 0.4s ease-in-out;
 }
 
