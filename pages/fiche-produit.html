@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orinoco | confirmation de votre commande</title>
+    <title>Orinoco | description produit vintage</title>
     <!-- CSS BOOTSTRAP -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
     
@@ -16,7 +16,7 @@
     <link rel="shortcut icon" type="image/png" href="../images/favicon1.png">
 </head>
 <body>
-    
+
     <!-- NAV -->
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="main-nav">
@@ -27,7 +27,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mr-1">
+                        <li class="nav-item mr-5">
+                            <a href="../index.html" class="nav-link">Accueil</a>
+                        </li>
+                        <li class="nav-item mr-5">
                             <a href="panier.html" class="nav-link">Panier</a>
                         </li>
                     </ul>
@@ -35,7 +38,7 @@
             </div>
         </div>
     </nav>
-
+    
     <header>
         <section id="presentation">
             <div class="container">
@@ -46,19 +49,37 @@
                 </div>
             </div>
         </section>
-	</header>
+    </header>
+
+    <section aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<div class="container-lg">
+				<h3 class="breadcrumb-item" aria-current="page">Description du produit</h3>
+			</div>
+		</ol>
+	</section>
 
     <main>
-        <div class="container mt-4 mb-4">
-            <div class="card text-center">
-                <div class="card-header m-4">
-                    <h4 class="card-title">Statut de votre commande</h4>
-                </div>
-                <div class="card-body bg-light m-4">
-                    <p class="card-text h2">Votre commande à bien été prise en compte !</p>
-                    <p class="h5">Merci de votre confiance</p>
-                    <p class="h5">Identifiant de votre commande : <span class="font-bold" id="commandId"></span></p>
-                    <a href="../index.html" class="btn btn-outline-light m-4 bg-body rounded border border-dark">Retour accueil</a>
+        <div class="container">
+            <div class="">
+                <div class="card mb-5" style="max-width: 2000px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="../images/vcam_1.jpg" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="card-title">Zeiss NiKon</h3>
+                                <h6 class="mt-4">Description :</h6>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium culpa soluta dolores eligendi nam consectetur cum quae aliquid sunt deleniti. Laudantium culpa soluta dolores eligendi nam consectetur cum</p>
+                                <p class="font-weight-bold">Prix : 560€</p>
+                                <p class="card-text">Disponible</p>
+                                <div class="d-grid gap-2 col-6 mx-auto">
+                                <a href="panier.html"><button class="btn btn-outline-secondary  mb-2 rounded border border-dark" type="button">Ajouter au panier</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,10 +94,11 @@
             </div>
         </div>
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
     <script src="js/script.js"></script>
+
 
 </body>
 </html>
