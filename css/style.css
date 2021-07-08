@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: #f1f1f1;
+    background: #5f666d;
     box-sizing: border-box;
 }
 
@@ -25,7 +25,7 @@ body {
     font-size: 20px;
 }
 
-span {
+.title-bandeau {
     font-family: 'Kaushan Script';
     font-size: 100px;
 }
@@ -35,7 +35,7 @@ span {
 header {
         background: url('../images/reflex11.jpg');
         background-size: cover;
-        height: 50vh;
+        height: 55vh;
         background-position: bottom;
         background-attachment: fixed;
         background-repeat: no-repeat;
@@ -51,28 +51,102 @@ header {
 }
 
     /* CARDS */
-  
-.card {
-    -webkit-box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.25);
-    box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.25);
-}
 
-.card-body a {
-    color: #000000;
-    text-decoration: none;
-    transition: .3s ease-out;
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
-
-.card-body a:hover {
-    color: #0275d8;
+      
+article {
+    height: 30rem;
+    width: 20rem;
+    background-color: #e9ecef;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 2px solid black;
 }
-
+      
+article a {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+     
+.produit img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    height: 55%;
+    margin-bottom: 0.5rem;
+}
+      
+.bloqueDescription {
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 0.5rem;
+}
+      
+article p {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+ 
     /* FOOTER */
 
 .footer {
     background: #e9ecef;
     padding: 10px 0 1px 0;
+}
+
+    /* page produit */
+
+.appareil {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #e9ecef;
+    padding: 10px 0;
+}
+      
+.description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: center;
+}
+      
+.appareil img {
+    object-fit: cover;
+    width: 50%;
+}
+
+select {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+  
+.appareil-description,
+.nom {
+    margin-top: 0.5rem;
+}
+  
+#panier:active {
+    background-color: grey;
+    color: black;
+     font-weight:bold;
+  
 }
 
 	/* FORMULAIRE */

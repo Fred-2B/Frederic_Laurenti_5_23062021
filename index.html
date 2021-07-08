@@ -29,7 +29,7 @@
 				<div class="collapse navbar-collapse" id="navbarCollapse">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item mr-5">
-							<a href="pages/panier.html" class="nav-link">Panier</a>
+							<a href="pages/panier.html" id="qantityPanier" class="nav-link">Panier</a>
 						</li>
 					</ul>
 				</div>
@@ -42,7 +42,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1>Bienvenue chez <span>Orinoco</span></h1>
+                        <h1>Bienvenue chez <span class="title-bandeau">Orinoco</span></h1>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
 	</header>
 
     <section aria-label="breadcrumb">
-		<ol class="breadcrumb">
+		<ol class="breadcrumb container-fluid">
 			<div class="container-lg">
 				<h3 class="breadcrumb-item" aria-current="page">Le temple du vintage arrive chez vous</h3>
 			</div>
@@ -59,37 +59,22 @@
 
     <div class="container-lg mb-4">
         <div class="row">
-            <div class="col-lg-3 d-none d-lg-block">
+            <div class="col-lg-2 d-none d-lg-block">
 				<div class="list-group">
 					<a href="#" class="list-group-item list-group-item-action">Toutes les catégories</a>
-					<a href="#" class="list-group-item list-group-item-action">Ours en peluche faits main</a>
-					<a href="#" class="list-group-item list-group-item-action active">Caméras vintage</a>
+					<a href="#" class="list-group-item  list-group-item-action">Ours en peluche faits main</a>
+					<a href="#" class="list-group-item list-group-item-action list-group-item-secondary active">Caméras vintage</a>
 					<a href="#" class="list-group-item list-group-item-action">Meubles en chêne</a>
 				</div>
 			</div>
-            <div class="col-lg-9 col-12">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                  
-                    <div class="col">
-						<div class="card h-100 border">
-							<img src="images/vcam_3.jpg" class="card-img-top">
-							<div class="card-body bg-light">
-								<h3 class="card-title" id="toto">Kodak</h3>
-								<h6>Description :</h6>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, quia!</p>
-								<p class="font-weight-bold">Prix : 520€</p>
-								<a href="#"> 
-									<button class="btn btn-outline-secondary  mb-2 rounded border border-dark" type="button">Voir le produit</button></a>
-							</div>
-						</div>
-					</div>
-                  
-						</div>
-					</div>
-                </div>
-             </div>
+            <div class="col-lg-10 col-12">
+                <main>
+                     <section id="container"></section>
+                </main>
+            </div>
         </div>
     </div>
+
 
     <!-- FOOTER -->
 
@@ -100,13 +85,14 @@
             </div>
         </div>
     </footer>
-	<div id='toto'></div>
+	<!-- <div id='toto'></div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-  <!--  <script src="js/script.js"></script>!-->
+  <!--  <script src="js/script.js"></script> -->
 
-	<script src="js/produit.js"></script>
-
+	<!-- <script src="js/produit.js"></script> -->
+    <script src="index.js"></script>
+    <script src="js/camera.js"></script>
 </body>
 </html>
