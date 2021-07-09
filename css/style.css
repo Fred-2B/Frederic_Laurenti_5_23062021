@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    background: #5f666d;
+    background: #878b8f; 
     box-sizing: border-box;
 }
 
@@ -52,6 +52,11 @@ header {
 
     /* CARDS */
 
+.categories {
+    border: 2px solid black;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
 section {
     display: flex;
     flex-direction: row;
@@ -66,8 +71,9 @@ article {
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     border: 2px solid black;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
       
 article a {
@@ -83,7 +89,7 @@ article a {
     margin-bottom: 0.5rem;
 }
       
-.bloqueDescription {
+.blockDescription {
     color: black;
     display: flex;
     align-items: center;
@@ -94,13 +100,6 @@ article a {
 article p {
     text-align: center;
     margin-bottom: 1.5rem;
-}
- 
-    /* FOOTER */
-
-.footer {
-    background: #e9ecef;
-    padding: 10px 0 1px 0;
 }
 
     /* page produit */
@@ -116,6 +115,7 @@ article p {
     border-radius: 10px;
     background-color: #e9ecef;
     padding: 10px 0;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
       
 .description {
@@ -152,7 +152,8 @@ select {
 	/* FORMULAIRE */
 
 #formulaire {
-    margin-top: 20px;
+    background-color: #f1f1f1;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
 form {
@@ -163,7 +164,7 @@ form {
 #formulaire .title {
     font-family: 'Handlee', cursive;
     font-size: 25px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
 #formulaire em {
@@ -172,7 +173,6 @@ form {
 
 #formulaire input {
     padding: 8px 0;
-    background-color: #f1f1f1;
     border-radius: 3px;
     width: 100%;
     font-family: 'Arial';
@@ -184,12 +184,37 @@ form {
     width: 100%;
     padding: 8px 0;
     border-radius: 3px;
-    background-color: #f1f1f1;
+    background-color: #ffffff;
 }
 
 #formulaire #submit:hover {
-    background-color: #baf8ba;
+    background-color: #76787a;
     color: #000000;
     transition: 0.4s ease-in-out;
 }
 
+    /* confirmation de commande */
+
+.about {
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    background-color: #e9ecef;
+}
+
+.item {
+    font-family: 'Handlee', cursive;
+    text-align: center;
+}
+ 
+    /* FOOTER */
+
+footer {
+    background: #e9ecef;
+    margin-top: 20px;
+    bottom: 0px;
+    height: 50px;
+}
+
+.logo-footer {
+   padding: 15px 0 6px 0;
+    
+}

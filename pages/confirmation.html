@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orinoco | confirmation de votre commande</title>
+    <title>Orinoco | Confirmation de votre commande</title>
     <!-- CSS BOOTSTRAP -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
     
@@ -17,21 +17,12 @@
 </head>
 <body>
     
+    
     <!-- NAV -->
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="main-nav">
         <div class="container">
             <a href="../index.html" class="navbar-brand">Orinoco</a>
-                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mr-1">
-                            <a href="panier.html" class="nav-link">Panier</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
     </nav>
@@ -41,38 +32,40 @@
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <h1><span>Orinoco</span></h1>
+                        <h1><span class="title-bandeau">Orinoco</span></h1>
                     </div>
                 </div>
             </div>
         </section>
 	</header>
 
-    <main>
-        <div class="container mt-4 mb-4">
-            <div class="card text-center">
-                <div class="card-header m-4">
-                    <h4 class="card-title">Statut de votre commande</h4>
-                </div>
-                <div class="card-body bg-light m-4">
-                    <p class="card-text h2">Votre commande à bien été prise en compte !</p>
-                    <p class="h5">Merci de votre confiance</p>
-                    <p class="h5">Identifiant de votre commande : <span class="font-bold" id="commandId"></span></p>
-                    <a href="../index.html"><button class="btn btn-outline-secondary  mb-2 rounded border border-dark" type="button">Retour accueil</button></a>
-                </div>
-            </div>
+    <section aria-label="breadcrumb">
+		<ol class="breadcrumb container-fluid">
+			<div class="container-lg">
+				<h3 class="breadcrumb-item" aria-current="page">Statut de votre commande</h3>
+			</div>
+		</ol>
+	</section>
+
+    <section class="container w-50">
+        <div class="card-body about mt-4 mb-5 text-center">
+            <h3 class="card-text mb-4 item">Votre commande à bien été prise en compte !</h3>
+            <p class="h5">Merci de votre confiance</p>
+            <p class="h5">Identifiant de votre commande : <span class="font-bold" id="commandId"></span></p>
+            <a href="../index.html"><button class="btn btn-outline-secondary  mt-4 mb-2 rounded border border-dark" type="button">Retour accueil</button></a>
         </div>
-    </main>
+    </section>
 
     <!-- FOOTER -->
 
     <footer>
-        <div class="container-fluid footer">
+        <div class="container-fluid">
             <div class="container-lg">
-                <p>Orinoco © Tous droits réservés</p>
+                <p class="logo-footer">Orinoco © Tous droits réservés</p>
             </div>
         </div>
     </footer>
+   
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>

@@ -19,13 +19,14 @@ const display = camera => {
       <img src=${camera.imageUrl} alt="">
       <div class="description">
         <h2 class="nom">${camera.name}</h2>
+        <p class="prix mt-3">Prix unitaire : ${camera.price/ 100}€</p>
         <p class="appareil-description">
           ${camera.description}
         </p>
         <select class="options" id ="option">
           <option>Options lens</option>
         </select>
-        <p class="prix"> Prix Unitaire: ${camera.price/ 100}€</p>
+        
         <select class="quantite" id="quantity">           
           <option>Quantité</option>
           <option value="1">1</option>

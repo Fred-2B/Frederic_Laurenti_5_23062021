@@ -5,7 +5,7 @@ const display = camera => {
     container.innerHTML += `
     <article id="cardsProduct" class="produit">
         <img src=${camera.imageUrl} alt="photos produits" />
-        <div class="bloqueDescription">
+        <div class="blockDescription">
             <h2>${camera.name}</h2>
             <p>Prix : ${camera.price / 100}€</p>
         </div>
