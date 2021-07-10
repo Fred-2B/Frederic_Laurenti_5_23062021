@@ -14,6 +14,6 @@ class Camera {
         this.id = _id;
         this.description = description;
         this.lenses = lenses;
-        this.quantity = parseInt(quantity, 10); // transforme chaine de caractère en nombre
+        this.quantity = parseInt(quantity, 5); // transforme chaine de caractère en nombre
     }
 };

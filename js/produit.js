@@ -18,15 +18,14 @@ const display = camera => {
     <div class="appareil" id="cardsProduct">
       <img src=${camera.imageUrl} alt="">
       <div class="description">
-        <h2 class="nom">${camera.name}</h2>
-        <p class="prix mt-3">Prix unitaire : ${camera.price/ 100}€</p>
+        <h3 class="nom">${camera.name}</h3>
+        <p class="prix">Prix unitaire : ${camera.price/ 100}€</p>
         <p class="appareil-description">
           ${camera.description}
         </p>
-        <select class="options" id ="option">
+        <select class="options" id="option">
           <option>Options lens</option>
         </select>
-        
         <select class="quantite" id="quantity">           
           <option>Quantité</option>
           <option value="1">1</option>
