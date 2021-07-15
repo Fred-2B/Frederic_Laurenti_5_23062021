@@ -1,10 +1,10 @@
-//RECUPERATION DE L URL
+// RECUPERATION URL
 let params = (new URL(document.location)).searchParams;
 
-//STOCK L ID 
+// STOCK ID 
 const id = params.get("id");
 
-//EMPLACEMENT HTML
+// EMPLACEMENT HTML
 let container = document.getElementById("container");
 
 // FONCTION ENVOIE LOCAL STORAGE
@@ -12,7 +12,7 @@ const addLocalStorage = panier => {
   localStorage.setItem('panier', JSON.stringify(panier));
 };
 
-// INCLUS HTML
+// HTML
 const display = camera => {
   container.innerHTML +=`
     <div class="appareil" id="cardsProduct">
@@ -24,7 +24,7 @@ const display = camera => {
           ${camera.description}
         </p>
         <select class="options" id="option">
-          <option>Options lens</option>
+          <option>Options lenses</option>
         </select>
         <select class="quantite" id="quantity">           
           <option>Quantité</option>
@@ -32,11 +32,12 @@ const display = camera => {
           <option value="2">2</option>
           <option value="3">3</option>
         </select>         
-        <a href ="../pages/panier.html"><button type ="submit" id="panier" value="submit" class="btn btn-outline-secondary mb-2 rounded border border-dark mt-3" type="button" >Ajouter au panier</button></a>
+        <a href ="../pages/panier.html"><button type="submit" id="panier" value="submit" class="btn btn-outline-secondary mb-2 rounded border border-dark mt-3" type="button" >Ajouter au panier</button></a>
       </div>
     </div>
   `;
-  // CHOIX OPTIONS
+  
+  // OPTIONS
   for (let lenses of camera.lenses){
     document.getElementById('option').innerHTML+=
     `<option value="1">${lenses}</option>`
@@ -47,14 +48,14 @@ const display = camera => {
   });
 };
 
-//FONCTION AJOUTER PANIER 
+// FONCTION AJOUTER PANIER 
 const addProductBasket = camera=> {
   camera.quantity = parseInt(document.getElementById('quantity').value);
 
-  //RECUPERE PANIER//memo : let variable=(condition)? "valeursi vrai": "valeur si faux"
+  // RECUPERE PANIER
   let panier = localStorage.getItem('panier') ? JSON.parse(localStorage.getItem('panier')) : [];
 
-  //BOUCLE FOR PARCOUR LIGNE PANIER
+  // PARCOUR LIGNE PANIER
   let cameraExistIndex = false;
   for (let i = 0; i < panier.length; i++) {
     let product = panier[i];
@@ -72,7 +73,7 @@ const addProductBasket = camera=> {
   addLocalStorage(panier)
 };
 
-// APPELLE API AVEC FETCH
+// APPELLE API
 fetch("http://localhost:3000/api/cameras/" + id)
   .then(response => response.json())
   .then(function (product) {
