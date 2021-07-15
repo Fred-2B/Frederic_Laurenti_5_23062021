@@ -9,7 +9,7 @@ let addIdBasket = [];
 
 function priceTotalBasket(camera){
   prixPanier += camera.quantity * camera.price / 100;
-  //AFFICHE PRIX TOTAL DU PANIER // ENVOI AU LOCALSTORAGE
+  
   let prixTotal = document.getElementById('prixTotal').textContent = prixPanier + " € ";
   localStorage.setItem('prixTotal', JSON.stringify(prixTotal));
 };
@@ -61,4 +61,24 @@ function deleteBasket() {
     window.location.reload();
   }
 };
+
+function sendOrder() {
+  let form = document.getElementById("form");
+  if (form.reportValidity() == true && addIdBasket.length>0) {
+    let contact = {
+      'firstName': document.getElementById("nom").value,
+      'lastName': document.getElementById("prenom").value,
+      'address': document.getElementById("adresse").value,
+      'city': document.getElementById("ville").value,
+      'email': document.getElementById("email").value
+    };
+ 
+    let products = addIdBasket;
+
+    let formulaireClient = JSON.stringify({
+      contact,
+      products,
+    });
+  }
+}
 
