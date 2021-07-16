@@ -14,39 +14,21 @@ const addLocalStorage = panier => {
 
 // HTML
 const display = camera => {
-  container.innerHTML +=`
-    <div class="appareil" id="cardsProduct">
-      <img src=${camera.imageUrl} alt="">
-      <div class="description">
-        <h3 class="nom">${camera.name}</h3>
-        <p class="prix">Prix unitaire : ${camera.price/ 100}€</p>
-        <p class="appareil-description">
-          ${camera.description}
-        </p>
-        <select class="options" id="option">
-          <option>Options lenses</option>
-        </select>
-        <select class="quantite" id="quantity">           
-          <option>Select quantité</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-        </select>         
-        <a href ="../pages/panier.html"><button type="submit" id="panier" value="submit" class="btn btn-outline-secondary mb-2 rounded border border-dark mt-3" type="button" >Ajouter au panier</button></a>
-      </div>
-    </div>
-  `;
+
+  document.getElementById('nom').textContent = camera.name
+  document.getElementById('prix').textContent = camera.price / 100 + ' € '
+  document.getElementById('appareil-description').textContent = camera.description 
+  document.getElementById('option').textContent = camera.lenses 
+  document.getElementById('imgProduct').src = camera.imageUrl
   
-  // OPTIONS
-  for (let lenses of camera.lenses){
-    document.getElementById('option').innerHTML+=
-    `<option value="1">${lenses}</option>`
-  }
-  // ECOUTE EVENEMENT AU CLICK + FNCT addProductBasket
-  document.getElementById('panier').addEventListener('click', function () {
-    addProductBasket(camera)
-  });
+    for (let lenses of camera.lenses){
+         document.getElementById('option').innerHTML+=
+      `<option value="1">${lenses}</option>`
+    }
+  
+    document.getElementById('panier').addEventListener('click', function () {
+      addProductBasket(camera)
+    });
 };
 
 // APPELLE API
