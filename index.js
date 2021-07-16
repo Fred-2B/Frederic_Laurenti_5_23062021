@@ -14,7 +14,7 @@ const display = camera => {
     </article>`
 };
 
-//APPEL API
+// API
 fetch("http://localhost:3000/api/cameras")
     .then(response => response.json())  
     .then(function (listeProduct) {

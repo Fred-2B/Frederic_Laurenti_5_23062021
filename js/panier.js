@@ -25,60 +25,9 @@ cameras.forEach((camera, i) => {
         <td >${camera.quantity * camera.price / 100} €</td>
     </tr>
   `;
-  
-  priceTotalBasket(camera)
- 
-  for (let i = 0; i < camera.quantity; i++) {
-    addIdBasket .push(camera.id);
-  }
 });
 
-function deleteCamera(id) {
-    let camera = cameras[id];
-    if (camera.quantity > 1) {
-      camera.quantity--;
-    } else {
-      cameras.splice(id, 1);
-    }
-    localStorage.setItem('panier', JSON.stringify(cameras));
-    window.location.reload();
-  }
 
 
-document.querySelectorAll(".deleteCamera").forEach(delBtn => {
-  delBtn.addEventListener('click', () => deleteCamera(delBtn.dataset.id))
-});
 
-let viderPanier = document.getElementById('viderPanier')
-viderPanier.addEventListener('click',  deleteBasket);
-
-
-function deleteBasket() {
-  if (cameras == null) {
-  } else {
-    container.remove();
-    localStorage.clear();
-    window.location.reload();
-  }
-};
-
-function sendOrder() {
-  let form = document.getElementById("form");
-  if (form.reportValidity() == true && addIdBasket.length>0) {
-    let contact = {
-      'firstName': document.getElementById("nom").value,
-      'lastName': document.getElementById("prenom").value,
-      'address': document.getElementById("adresse").value,
-      'city': document.getElementById("ville").value,
-      'email': document.getElementById("email").value
-    };
- 
-    let products = addIdBasket;
-
-    let formulaireClient = JSON.stringify({
-      contact,
-      products,
-    });
-  }
-}
 

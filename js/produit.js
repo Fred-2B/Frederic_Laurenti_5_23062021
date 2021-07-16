@@ -7,7 +7,7 @@ const id = params.get("id");
 // EMPLACEMENT HTML
 let container = document.getElementById("container");
 
-// FONCTION ENVOIE LOCAL STORAGE
+//  ENVOIE LOCAL STORAGE
 const addLocalStorage = panier => {
   localStorage.setItem('panier', JSON.stringify(panier));
 };
@@ -27,10 +27,11 @@ const display = camera => {
           <option>Options lenses</option>
         </select>
         <select class="quantite" id="quantity">           
-          <option>Quantité</option>
+          <option>Select quantité</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
+          <option value="4">4</option>
         </select>         
         <a href ="../pages/panier.html"><button type="submit" id="panier" value="submit" class="btn btn-outline-secondary mb-2 rounded border border-dark mt-3" type="button" >Ajouter au panier</button></a>
       </div>
@@ -48,39 +49,11 @@ const display = camera => {
   });
 };
 
-// FONCTION AJOUTER PANIER 
-const addProductBasket = camera=> {
-  camera.quantity = parseInt(document.getElementById('quantity').value);
-
-  // RECUPERE PANIER
-  let panier = localStorage.getItem('panier') ? JSON.parse(localStorage.getItem('panier')) : [];
-
-  // PARCOUR LIGNE PANIER
-  let cameraExistIndex = false;
-  for (let i = 0; i < panier.length; i++) {
-    let product = panier[i];
-    //CONDITION CI PRODUIT EXISTE
-    if (product.id === camera.id) {
-      cameraExistIndex = i;
-    }
-  };
-  // Caméra existe dans le panier
-  if (false !== cameraExistIndex) {
-    panier[cameraExistIndex].quantity = parseInt(panier[cameraExistIndex].quantity) + camera.quantity;
-  } else {
-    panier.push(camera);
-  };
-  addLocalStorage(panier)
-};
-
 // APPELLE API
 fetch("http://localhost:3000/api/cameras/" + id)
   .then(response => response.json())
   .then(function (product) {
     let camera = new Camera(product)
     display(camera);
-  })
-  // SI PROBLEME API
-  .catch(function(err){
-  console.log("fetch Error")
-});
+  });
+  
