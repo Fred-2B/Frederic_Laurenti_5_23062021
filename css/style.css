@@ -57,7 +57,7 @@ header {
     box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
 }
 
-section {
+.container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -81,11 +81,11 @@ article a {
     margin-bottom: 1rem;
 }
      
-.produit img {
+. img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     object-fit: cover;
-    height: 55%;
+    height: 50%;
     margin-bottom: 0.5rem;
 }
       
@@ -94,7 +94,7 @@ article a {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 0.5rem;
+    margin: 0.5rem;
 }
       
 article p {

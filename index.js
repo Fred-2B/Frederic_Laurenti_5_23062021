@@ -1,25 +1,27 @@
-let container = document.getElementById("container");
+// INDEX.JS // 
+(async function() {
+    const cameras = await getCameras()
+    for (camera of cameras) {
+        displayCamera(camera)
+    }
+})()
 
-// AFFICHAGE HTML
-const display = camera => {
-    container.innerHTML += `
-    <article id="cardsProduct" class="produit">
-        <img src=${camera.imageUrl} alt="photos produits" />
-        <div class="blockDescription">
-            <h2>${camera.name}</h2>
-            <p>Prix : ${camera.price / 100}€</p>
-        </div>
-        <p>${camera.description}</p>
-        <a href="pages/produit.html?id=${camera.id}"><button class="btn btn-outline-secondary mb-2 rounded border border-dark" type="button" >Voir le produit</button></a>
-    </article>`
-};
+/* Appeler les données via API */
+function getCameras() {
+    return fetch("http://localhost:3000/api/cameras")
+        .then((responseHttp) => responseHttp.json())
+}
 
-// API
-fetch("http://localhost:3000/api/cameras")
-    .then(response => response.json())  
-    .then(function (listeProduct) {
-        for (let product of listeProduct) {
-            let camera = new Camera(product)
-            display(camera);
-        }
-    })
+/* Récupérer les informations contenues dans le tableau*/
+function displayCamera(camera) {
+    const templateElt = document.getElementById("templateArticle")
+    const cloneElt = document.importNode(templateElt.content, true)
+    
+    cloneElt.getElementById("blog__image").src = camera.imageUrl
+    cloneElt.getElementById("blog__title").textContent = camera.name
+    cloneElt.getElementById("blog__description").textContent = camera.description
+    cloneElt.getElementById("blog__price").textContent = camera.price / 100 + (' €')
+    cloneElt.getElementById("blog__lien").href = "page/produit.html?id=" + camera._id
+    
+    document.getElementById("produits").appendChild(cloneElt)
+}
