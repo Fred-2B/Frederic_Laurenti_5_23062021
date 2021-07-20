@@ -39,14 +39,17 @@ function ready(cameraData) {
       event.preventDefault()
       getAddCamera(cameraData)
       goToRedirectionToPanier(cameraData.name)
+      
   })
   /* Nécéssité de choisir au moins 1 produit */
-  let quantityInput = document.getElementById('quantity')
-  quantityInput.addEventListener("change", quantityChanged)
+  /*let quantityInput = document.getElementById('quantity')
+  quantityInput.addEventListener("change", quantityChanged)*/
 }
 
 function getAddCamera(){
-      Mettre la logique pour le panier 
+    
+
+  
 }
 
   

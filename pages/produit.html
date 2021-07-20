@@ -63,15 +63,20 @@
         <img class="camera-image" id="blog__image" src="/" alt="camera"/>
     
         <div class="detail">
-            <p><span class="camera-name" id="blog__title"></span></p>
+            <div class="blockDescription">
+                <p><span class="camera-name" id="blog__title"></span></p>
+                <span class="camera-price" id="blog__price"></span>
+            </div>
+            <h6 class="ml-3">Description :</h6>
             <p><span class="camera-description" id="blog__description"></span></p>
-            <span class="camera-price" id="blog__price"></span>
-        
+            
             <form class="form" method="post">
                 <p>
                     <label class="lenses">Options lenses</label><br />
-                    <select class="select-style">
-                    
+                    <select class="select-style" name="lenses" id="blog__lenses">
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
                     </select>
                 </p>
             </form>
@@ -93,7 +98,7 @@
             </form>
         </div>
     
-        <button type="submit" class="button-panier" id="buttonAdd">
+        <button type="submit" class="button-panier btn btn-outline-secondary rounded border border-dark" id="buttonAdd">
             Ajouter au panier
         </button>
     </div>

@@ -21,7 +21,7 @@ function displayCamera(camera) {
     cloneElt.getElementById("blog__title").textContent = camera.name
     cloneElt.getElementById("blog__description").textContent = camera.description
     cloneElt.getElementById("blog__price").textContent = camera.price / 100 + (' €')
-    cloneElt.getElementById("blog__lien").href = "page/produit.html?id=" + camera._id
+    cloneElt.getElementById("blog__lien").href = "pages/produit.html?id=" + camera._id
     
     document.getElementById("produits").appendChild(cloneElt)
 }
