@@ -3,18 +3,10 @@
   const cameraId = getCameraId()
   const cameraData = await getCameraData(cameraId)
   displayCamera(cameraData)
-
-  /* Au téléchargement de la page, le bouton va être prêt avant les autres*/
-  if (document.readyState == 'loading') {
-      document.addEventListener('DOMContentLoaded', ready)
-  } else {
-      ready(cameraData)
-  }
 })()
 
 function getCameraId() {
-  /* L'extraction de l'ID pour identifier quel lien on a cliqué et pour afficher après le bon API */
-  return (new URL(document.location)).searchParams.get('id')
+  return new URL(document.location).searchParams.get('id')
 }
 
 function getCameraData(cameraId) {
@@ -29,27 +21,19 @@ function displayCamera(cameraData) {
   document.getElementById('blog__title').textContent = cameraData.name
   document.getElementById('blog__description').textContent = cameraData.description
   document.getElementById('blog__price').textContent = cameraData.price / 100 + " €"
-}
 
 
-function ready(cameraData) {
   /* Evénement pour ajouter le produit au panier au clique d'ajout au panier*/
-  const buttonAjout = document.getElementById('buttonAdd')
-  buttonAjout.addEventListener('click', (event) => {
-      event.preventDefault()
-      getAddCamera(cameraData)
-      goToRedirectionToPanier(cameraData.name)
-      
-  })
-  /* Nécéssité de choisir au moins 1 produit */
-  /*let quantityInput = document.getElementById('quantity')
-  quantityInput.addEventListener("change", quantityChanged)*/
+  document.getElementById('buttonAdd').onclick = (event) => {
+    event.preventDefault()
+    Camera.addProduct(cameraData)
+    redirectToShoppingCart(cameraData.name)
+  }
 }
 
-function getAddCamera(){
-    
-
-  
+function redirectToShoppingCart(blog__title) {
+  window.location.href = `${window.location.origin}../pages/panier.html?lastAddedBlog__title=${blog__title}`
 }
 
-  
+
+
