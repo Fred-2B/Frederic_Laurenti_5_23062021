@@ -1,0 +1,284 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #878b8f; 
+    box-sizing: border-box;
+}
+
+ /* Main */
+    #products, #products__description, #cart, #order-form, #confirmation {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+    /* NAV */
+
+.navbar-brand {
+    font-size: 30px;
+    font-family: 'Kaushan Script';
+}
+
+#navbarCollapse a {
+    font-size: 20px;
+}
+
+.navbar-toggler-icon {
+    font-size: 20px;
+}
+
+header {
+        background: url('../images/reflex11.jpg');
+        background-size: cover;
+        height: 55vh;
+        background-position: bottom;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+}
+
+#presentation h1 {
+	text-align: center;
+	margin-top: 160px;
+	font-weight: 500;
+	font-size: 80px;
+	color: #f1f1f1;
+	padding-bottom: 10px;
+}
+
+.title-bandeau {
+    font-family: 'Kaushan Script';
+    font-size: 130px;
+}
+
+.card {
+    margin: 15px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    border: 2px solid black;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+#produits_show {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+ /* Products */
+ #cards {
+    display: flex;
+    flex-direction: column;
+}
+#products__card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.card-image {
+    height: 100%;
+    max-height: 330px;
+    overflow: hidden;
+}
+#products__card > .card-image > img {
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+}
+.card-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card-body h3, h4 {
+    font-size: 1.3em;
+}
+.products--error {
+    font-size: 5em;
+    color: #999;
+    margin: 40px 0 40px 0;
+}
+
+ /* Product description */
+ .card__description--image > img {
+    width: 100%;
+    height: auto;
+}
+.card__description--info {
+    padding-left: 10px;
+}
+#description__id {
+    font-size: 0.8em;
+}
+#description__option {
+    width: 180px;
+    height: 25px;
+}
+#description__quantity {
+    width: 172px;
+    height: 25px;
+}
+.card__button {
+    display: flex;
+    width: 250px;
+    margin: 20px auto 30px auto;
+}
+.card__button:hover .btn-primary {
+    background-color: #905BF9;
+    border: none;
+}
+
+ /* Cart */
+ .cart-img {
+    width: 100px;
+    height: 65px;
+}
+.fa-minus-square, .fa-plus-square, .fa-trash-alt {
+    cursor: pointer;
+}
+/* Section 6: Order form */
+.panier__button {
+    text-align: center;
+    width: 250px;
+    margin: 20px auto 30px auto;
+}
+.panier__button button {
+    line-height: 0;
+}
+.panier__button:hover .btn-primary {
+    background-color: #905BF9;
+    border: none;
+}
+
+/* Confirmation */
+.confirmation > i {
+    font-size: 5em;
+    color: #0a0a0a;
+    margin: 30px 0 40px 0;
+} 
+.confirmation > h2 {
+    margin-bottom: 40px;
+}
+
+
+   /* Tablette */
+   @media screen and (min-width: 768px) and (max-width: 991px) {
+    /* Header */  
+        nav img {
+            width: 100%;
+        }
+        .fa-shopping-bag {
+            padding-right: 25px;
+        }
+    /* Main */
+        /* index.html */
+            /* Section 1: Presentation */
+                .jmb-text h1 {
+                    font-size: 5em;
+                }
+                .jmb-text h2 {
+                    font-size: 1.73em;
+                }
+            /* Section 2: Products */
+                #cards {
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    justify-content: space-between;
+                }
+                #products__card {
+                    width: 48%;
+                }
+                .card-image {
+                    max-height: 230px;
+                }
+                .card-body h3, h4 {
+                    font-size: 1.2em;
+                }
+        /* produit.html */
+            /* Section 4: Product description */
+                .customer_input {
+                    display: flex;
+                    flex-direction: row;
+                }
+                .option {
+                    width: 60%;
+                }
+                .quantity {
+                    width: 40%;
+                }
+                #description__option {
+                    width: 180px;
+                }
+                #description__quantity {
+                    width: 100px;
+                }
+}
+
+
+    /* Desktop */
+    @media screen and (min-width: 992px) {
+        /* Header */  
+            nav img {
+                width: 100%;
+            }
+            .fa-shopping-bag {
+                padding-right: 25px;
+            }
+        /* Main */
+            /* Max-width */
+            #products, #products__description, #cart, #order-form, #confirmation {
+                max-width: 1280px;
+                margin: 0 auto;
+            }
+            /* index.html */
+                /* Section 1: Presentation */
+                    .jmb-text h1 {
+                        font-size: 6.5em;
+                    }
+                    .jmb-text h2 {
+                        font-size: 1.5em;
+                    }
+                /* Section 2: Products */
+                    #cards {
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+                    }
+                    #products__card {
+                        width: 49%;
+                    }
+                    .card-image {
+                        max-height: 305px;
+                    }
+            /* produit.html */
+                /* Section 4: Product description */
+                    .card__description {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                    }
+                    .card__description--image, .card__description--info {
+                        width: 50%;
+                    }
+                    .card__description--info {
+                        padding: 0 15px;
+                    }
+                    .customer_input {
+                        display: flex;
+                        flex-direction: row;
+                    }
+                    .option {
+                        width: 60%;
+                    }
+                    .quantity {
+                        width: 40%;
+                    }
+                    #description__option {
+                        width: 170px;
+                    }
+                    #description__quantity {
+                        width: 80px;
+                    }
+    }

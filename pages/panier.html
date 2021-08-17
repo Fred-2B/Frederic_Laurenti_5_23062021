@@ -6,15 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orinoco | Votre panier</title>
     <!-- CSS BOOTSTRAP -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/fontawesome.min.css">
 
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://fred-2b.github.io/Frederic_Laurenti_5_23062021/panier.html" />
     <meta name="description" content="Orinoco panier">
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+   <link rel="stylesheet" href="../css/style2.css">
     <link rel="shortcut icon" type="image/png" href="../images/favicon1.png">
 </head>
 <body>
@@ -23,17 +25,19 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="main-nav">
         <div class="container">
-            <a href="../index.html" class="navbar-brand">Orinoco</a>
+            <a href="../index2.html" class="navbar-brand">Orinoco</a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mr-5">
-                            <a href="../index.html" class="nav-link">Accueil</a>
+                            <a href="../index2.html" class="nav-link">Accueil</a>
                         </li>
-                        <li class="nav-item mr-5">
-                            <a href="#" class="nav-link">Panier</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./panier.html">
+                                <i class="fas fa-shopping-bag" id="nav-icon"></i><span></span>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -53,125 +57,125 @@
         </section>
     </header>
 
-    <section aria-label="breadcrumb">
-		<ol class="breadcrumb container-fluid">
-			<div class="container-lg">
-				<h3 class="breadcrumb-item" aria-current="page">Votre panier</h3>
-			</div>
-		</ol>
-	</section>
-
-        <!-- TABLEAU COMMANDE -->
-    <section class="card w-75">
-        <div class="card-body">
-            <div class="recap-commande">
-                <table id="container">
-            
+    
+    <main>
+        <div class="container-fluid p-4 mb-2">
+           
+            <!-- Cart -->
+            <section id="cart" class="my-4">
+                <h3 class="mb-4">VOTRE PANIER</h3>
+                <div class="table-responsive">
+                <table class="table table-responsive text-center">
                     <thead>
                         <tr>
-                            <th class="srcimage">Aperçu</th>
-                            <th>Nom</th>
-                            <th>Quantité</th>
-                            <th>Prix Unitaire</th>
-                            <th>Supprimer</th>
-                            <th>Prix</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prix à l'unité</th>
+                            <th scope="col">Lense</th>
+                            <th scope="col">Quantité</th>
                         </tr>
                     </thead>
+                    <tbody id="cart-tableBody">
+                        <template id="templateCart">
+                            <tr class="align-middle">
+                                <td>
+                                    <img id="cart__image" class="img-fluide cart-img" src="http://localhost:3000/api/cameras">
+                                </td>
+                                <td>
+                                    <span id="cart__name" class="h6">Name</span><br>
+                                    <span id="cart__id" class="small">Référence</span></td>
+                                <td id="cart__price">Prix</td>
+                                <td id="cart__option">Option</td>
+                                <td>
+                                    <i class="far fa-minus-square" id="quantityMinus"></i>
+                                    <span id="cart__quantity">Quantité</span>
+                                    <i class="far fa-plus-square" id="quantityPlus"></i>&nbsp;
+                                    <i class="far fa-trash-alt" id="quantityDelete"></i>
+                                </td>    
+                            </tr>
+                        </template>
+                    </tbody>
                     <tfoot>
                         <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td>TOTAL</td>
-                        <td id="prixTotal"></td>
+                            <td colspan="4" class="h6 text-end">Total</td>
+                            <td colspan="1" class="text-center" id="cart-totalPrice">Total Price</td>
                         </tr>
                     </tfoot>
                 </table>
-
-                    <div class="buttom">
-                        <button id="viderPanier" class="btn btn-outline-secondary mb-2 rounded border border-dark viderPanier">Réinitialisation</button>
-                    </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- FORMULAIRE -->
-
-    <div class="container w-75">
-        <div class="card mt-5 mb-5">
-            <div id="formulaire">
-                <div class="container">
-                    <div class="row">
-                        <div class="col md-6">
-                        <div class="title text-center">Pour finaliser votre commande, veuillez complétez ce formulaire</div>
-                        </div>
-                    </div>
                 </div>
-
-                <form action="#" method="POST" id="form" accept-charset="UTF-8">
-
-                    <div class="container">
-                        <div class="row">
-                            <div class="col md-6">
-                                <div>
-                                    <label for="nom" class="m-0">Nom <em>*</em></label>
-                                    <input type="text" name="nom" id="nom" required maxlength="50">
-                                </div>
-
-                                <div class="mt-2">
-                                    <label for="site" class="m-0">Adresse <em>*</em></label>
-                                    <input type="text" name="adresse" id="adresse" required>
-                                </div>
-                                
-                                <div class="mt-2">
-                                    <label for="email" class="m-0">E-mail <em>*</em></label>
-                                    <input type="email" name="email" id="email" required placeholder=" mail@domaine.fr" maxlength="50">
-                                </div>
-                            </div>
-                        
-                            <div class="col md-6">
-                                <div>
-                                    <label for="nom" class="m-0">Prenom <em>*</em></label>
-                                    <input type="text" name="nom" id="nom" required maxlength="50">
-                                </div>
-
-                                <div class="mt-2">
-                                    <label for="site" class="m-0">Ville <em>*</em></label>
-                                    <input type="text" name="ville" id="ville" required>
-                                </div>
-
-                                <div class="mt-4">
-                                    <input type="submit" value="Valider la commande" class="submit" id="envoiFormulaire">
-                                </div>
-                            </div>
-                        </div>
+            </section>
+            <!-- form -->
+            <section id="order-form" class="mt-5" >
+                <h3 class="mb-4">FORMULAIRE DE COMMANDE</h3>
+                <form id="formulaire" method="POST">
+                    <div class="form-group pb-2">
+                        <label for="firstName" class="form-label h6">Nom de famille</label>
+                        <input 
+                            type="text" class="form-control" id="firstName" name="firstName" required
+                            autocomplete="off" placeholder="XXX" 
+                            minlength="1" maxlength="30"
+                            pattern="[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ .'-]*"
+                            title="Prénom peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et [ ] [.] ['] [-]."
+                        />
                     </div>
-
-                    <div class="container mb-4">
-                        <div class="row">
-                            <div class="col md-6 text-center mt-1">
-                                <div class="info font-weight-light">Votre adresse de messagerie ne sera pas publiée. Champs obligatoires <em>*</em></div>
-                            </div>
-                        </div>
+                    <div class="form-group pb-2">
+                        <label for="lastName" class="form-label h6">Prénom</label>
+                        <input 
+                            type="text" class="form-control" id="lastName" name="lastName" required
+                            autocomplete="off" placeholder="XXX" 
+                            minlength="1" maxlength="30"
+                            pattern="[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ .'-]*"
+                            title="Nom de famille peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et [ ] [.] ['] [-]."
+                        />
+                    </div>
+                    <div class="form-group pb-2">
+                        <label for="address" class="form-label h6">Adresse</label>
+                        <input 
+                            type="text" class="form-control" id="address" name="address" required
+                            autocomplete="off" placeholder="XXX"
+                            minlength="3" maxlength="100"
+                            pattern="[0-9a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ ,.'-/]*"
+                            title="Adresse peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et [ ] [.] [,] ['] [-] [/]."
+                        />
+                    </div>
+                    <div class="form-group pb-2">
+                        <label for="city" class="form-label h6">Ville</label>
+                        <input 
+                            type="text" class="form-control" id="city" name="city" required
+                            autocomplete="off" placeholder="XXX" 
+                            minlength="2" maxlength="50"
+                            pattern="[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ'-]*"
+                            title="Nom de ville peut contenir les caractères alphabétiques qui sont utilisés dans la langue française et ['] [-]."
+                        />
+                    </div>
+                    <div class="form-group pb-2">
+                        <label for="email" class="form-label h6">E-mail</label>
+                        <input 
+                            type="email" class="form-control" id="email" name="email" required
+                            autocomplete="off" placeholder="XXX@XXX.com"   
+                        />
+                        
+                    </div>
+                    <div class="panier__button">
+                        <button type="submit" class="btn btn-primary" id="form__orderButton">Passer la commande</button>
                     </div>
                 </form>
-            </div>
+            </section>
         </div>
-    </div>
-
+    </main>
     <!-- FOOTER -->
 
     <footer>
         <div class="container-fluid">
             <div class="container-lg">
-                <p class="logo-footer">Orinoco © Tous droits réservés</p>
+                <p class="logo-footer pb-3">Orinoco © Tous droits réservés</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+   <!-- CSS Bootstrap components -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     
     <script src="../js/camera.js"></script>
     <script src="../js/panier.js"></script>
