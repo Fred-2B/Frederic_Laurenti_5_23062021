@@ -162,6 +162,26 @@ function deleteProduct() {
         })
     }
 }
+
+    /* insertion bouton suppression */
+const viderPanier = document.querySelector(".viderPanier");
+console.log(viderPanier);
+
+    /* suppression key panier */
+viderPanier.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    /* vider le local storage */
+    localStorage.removeItem("Cart");
+
+    /* alert "Le panier a été vidé" */
+    alert("Le panier a été vidé");
+
+    /* Rechargement de la page */
+    window.location.reload();
+    
+});
+
    
 
 

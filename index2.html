@@ -9,8 +9,9 @@
     <link rel="canonical" href="https://fred-2b.github.io/Frederic_Laurenti_5_23062021/index.html"/>
     <meta name="description"
           content="Orinoco site E-commerce à thèmes, Ours en peluche, cameras vintage, meubles en chêne">
+
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
 
     <!-- CSS BOOTSTRAP -->
@@ -24,13 +25,10 @@
 <body>
 
     <div class="container">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="main-nav">
-            <div class="container">
-                <a href="index.html" class="navbar-brand">Orinoco</a>
-                    <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="row">
+            <nav class="navbar navbar-dark bg-dark fixed-top" id="main-nav">
+                <div class="container">
+                    <a class="navbar-brand" href="index.html">Orinoco</a>
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link" href="pages/panier.html">
@@ -38,10 +36,9 @@
                                 </a>
                             </li>
                         </ul>
-                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </div>
     <header>
         <section id="presentation">
@@ -56,26 +53,21 @@
 	</header>
     <main>
         <!-- Products -->
-        <div class="container">
+        <div class="container mt-3">
             <section id="products" class="errorMessage">
-                <h3>Nos Produits</h3>
-                <div id="cards">
+                <p class="title text-center m-5">Nos Cameras Vintage</p>
+                <div id="cards" class="">
                     <template id="templateProducts">
-                        <div class="card" style="width: 15rem; height: 25rem;" id="products__card">
-                            <div id="">
-                                <div class="card-image">
-                                    <img id="card__image" class="card-img-top card__image" src="" alt="">
+                        <div class="card text-center mb-5" style="width: 18rem;" id="products__card">
+                            <img id="card__image" class="card-img-top card__image img-thumbnail" src="" alt="">
+                                <div class="card-body">                        
+                                    <h3 id="card__name" class="card-title card__name m-2"></h3>
+                                    <h6 id="card__price" class="card-text card__price m-1"></h6>
+                                    <a href="" class="btn btn-outline-secondary rounded border border-dark w-75 m-4" type="button" id="card__link">Voir le produit</a>
                                 </div>
-                                <div class="">                        
-                                    <h3 id="card__name" class="card__name m-0"></h3>
-                                    <h4 id="card__price" class="card__price m-0"></h4>
-                                </div>
-                                <a href="" class="button-voir btn btn-outline-secondary rounded border border-dark w-75 ml-auto mr-auto" type="button" id="card__link">Voir le produit</a>
-                            </div>
                         </div>
                     </template>
                 </div>
-                <div id="produits_show"></div>
             </section>
         </div>
     </main>
@@ -83,7 +75,7 @@
     <footer>
         <div class="container-fluid">
             <div class="container-lg">
-                <p class="logo-footer pb-3">Orinoco © Tous droits réservés</p>
+                <p class="text-center pb-3">Orinoco 2021 © Tous droits réservés</p>
             </div>
         </div>
     </footer>

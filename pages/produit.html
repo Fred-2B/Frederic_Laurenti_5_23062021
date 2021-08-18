@@ -13,7 +13,10 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://fred-2b.github.io/Frederic_Laurenti_5_23062021/produit.html" />
     <meta name="description" content="Orinoco description produit">
+
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Handlee&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="../css/style2.css">
     <link rel="shortcut icon" type="image/png" href="../images/favicon1.png">
 </head>
@@ -21,27 +24,22 @@
 
     <!-- NAV -->
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="main-nav">
-        <div class="container">
-            <a href="../index2.html" class="navbar-brand">Orinoco</a>
-                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mr-5">
-                            <a href="../index2.html" class="nav-link">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./panier.html">
-                                <i class="fas fa-shopping-bag" id="nav-icon"></i><span></span>
-                            </a>
-                        </li>
-                    </ul>
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-dark bg-dark fixed-top" id="main-nav">
+                <div class="container">
+                    <a class="navbar-brand" href="../index2.html">Orinoco</a>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="panier.html">
+                                    <i class="fas fa-shopping-bag" id="nav-icon"></i><span></span>
+                                </a>
+                            </li>
+                        </ul>
                 </div>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </div>
     
     <header>
         <section id="presentation">
@@ -57,28 +55,29 @@
 
     <main>
         <section id="products__description" class="errorMessage">
-            <div class="card card__description">
+            <p class="title text-center m-5">Camera</p>
+            <div class="card m-5 card__description">
                 <div class="card__description--image">
                     <img id="description__image" src="http://localhost:3000/api/cameras" alt="">
                 </div>
-                <div class="card__description--info mt-2">
-                    <h3 id="description__name">Name</h3>
-                    <p id="description__id">Référence</p>
-                    <h4 id="description__price">Prix</h4>
-                    <p id="description__description">Description</p>
+                <div class="card__description--info mt-4">
+                    <h3 id="description__name" class="m-2 text-center">Name</h3>
+                    <p id="description__id" class="text-center">Référence</p>
+                    <h6 id="description__price" class="text-center">Prix</h6>
+                    <p id="description__description" class="mt-4 text-center">Description</p>
                     <div class="customer_input">
-                        <div class="option mb-2">
+                        <div class="option m-2">
                             <label for="description__option">Lenses : </label>
                             <select name="description__option" id="description__option"></select>
                         </div>
-                        <div class="quantity mb-2">
+                        <div class="quantity m-2">
                             <label for="description__quantity">Quantité : </label>
                             <input id="description__quantity" type="number" name="description__quantity" value="1" min="1">
                         </div>
                     </div>
-                    <a class="card__button" href="#">
-                        <div class="btn-primary">AJOUTER AU PANIER</div>
-                    </a>
+                    <div class="row justify-content-center">
+                        <a href="#" class="btn btn-outline-secondary rounded border border-dark w-50 m-5 card__button" type="button">Ajouter au panier</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -89,7 +88,7 @@
     <footer>
         <div class="container-fluid">
             <div class="container-lg">
-                <p class="logo-footer pb-3">Orinoco © Tous droits réservés</p>
+                <p class="text-center pb-3">Orinoco 2021 © Tous droits réservés</p>
             </div>
         </div>
     </footer>
