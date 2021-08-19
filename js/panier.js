@@ -174,8 +174,8 @@ viderPanier.addEventListener("click", (event) => {
     /* vider le local storage */
     localStorage.clear();
 
-    /* alert "Le panier a été vidé" */
-    alert("Le panier a été vidé");
+    /* alert "Attention votre panier va être vider" */
+    alert("Attention votre panier va être vider");
 
     /* Rechargement de la page */
     window.location.reload();

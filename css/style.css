@@ -27,18 +27,18 @@ html, body {
 
 header {
     margin-top: 85px;
-        background: url('../images/reflex11.jpg');
-        background-size: cover;
-        height: 55vh;
-        background-position: bottom;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        border-bottom: 5px solid black;
+    background: url('../images/reflex11.jpg');
+    background-size: cover;
+    height: 55vh;
+    background-position: bottom;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    border-bottom: 5px solid black;
 }
 
 #presentation h1 {
 	text-align: center;
-	margin-top: 160px;
+	margin-top: 110px;
 	font-weight: 500;
 	font-size: 80px;
 	color: #f1f1f1;
