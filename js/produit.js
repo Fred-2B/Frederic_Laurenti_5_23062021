@@ -21,7 +21,7 @@ function getProductId() {
     return new URL(document.location).searchParams.get('id');
 };
 
-/* Appeler les données par ID de l'API */
+/* Appeler les données par ID de l'API du serveur  */
 function getProductInfo(productId) {
     return fetch(`http://localhost:3000/api/cameras/${productId}`)
         .then((responseHttp) => responseHttp.json())
@@ -49,6 +49,9 @@ function insertProductInfo(productInfo) {
 
 /* Afficher le nombre d'article(s) ajouté(s) au panier */ 
 onLoadCartNumbers();
+
+
+/********************* AJOUTER L'ARTICLE CHOISI AU PANIER *********************/
 
 /* Gestion du Local Storage */
 let productInCart = localStorage.getItem('Cart')
@@ -93,7 +96,7 @@ function addToCart(productInfo) {
     let product = productInCart.find(
         (obj) => obj.id === inputIdenfication && obj.option === inputLenses
     );
-    // Cas 1: Le même produit de même option déjà dans le panier - Incrementer la quantité 
+    // Le même produit de même option déjà dans le panier - Incrementer la quantité 
 
     if (product) {
         product.quantity += parseInt(inputQuantity);
@@ -111,21 +114,24 @@ function addToCart(productInfo) {
             price: productInfo.price / 100
         });
     }
-    alert('Votre camera a bien été ajouté au panier !');
+    alert('Votre produit a bien été ajouté au panier !');
     localStorage.setItem('Cart', JSON.stringify(productInCart));
     window.location.reload();
 }
 
+
 /* Calculer le prix total - 'TotalPrice' du Local Storage */
-function addUpTotalPrice() {
+
+function addUpTotalPrice(productInfo) {
     let cartPrice = localStorage.getItem('TotalPrice');
     let inputQuantity = productQuantity.value;
     inputQuantity = parseInt(inputQuantity);
-    let inputPriceXQuantity = (parseFloat(productPrice.textContent) * inputQuantity);
+    let inputPriceXQuantity = (productInfo.price / 100) * inputQuantity;
     if (cartPrice !== null) {
         cartPrice = parseInt(cartPrice);
         localStorage.setItem('TotalPrice', cartPrice + inputPriceXQuantity);
     } else {
         localStorage.setItem('TotalPrice', inputPriceXQuantity);
     }
+    
 }

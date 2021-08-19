@@ -1,5 +1,5 @@
 
-/* Afficher le nombre d'article ajouté au panier */ 
+/* Afficher le nombre d'article(s) ajouté(s) au panier */ 
 onLoadCartNumbers();
 
 
@@ -7,7 +7,10 @@ onLoadCartNumbers();
 let productInCart = localStorage.getItem('Cart');
 productInCart = JSON.parse(productInCart);
 
+/* Déclaration du lieu où les données doivent être insérées*/
+let cartTableBody = document.getElementById('cart-tableBody');
 let cartTotalPrice = document.getElementById('cart-totalPrice');
+
 
 displayProductsInCart(); 
 displayTotalPrice();
@@ -28,7 +31,7 @@ function displayProductsInCart() {
     
         document.getElementById("cart-tableBody").appendChild(cloneElement);
     }
-    // Contrôle des boutons des "Quantité"
+    // Contrôle des boutons dans la colonne "Quantité"
     reduceQuantity();
     increaseQuantity();
     deleteProduct();
@@ -36,6 +39,7 @@ function displayProductsInCart() {
 
 /* Afficher le prix total */
 function displayTotalPrice() {
+
     let totalPrice = 0;
     let totalPriceInCart = localStorage.getItem('Cart');
     let cart = JSON.parse(totalPriceInCart);
@@ -159,30 +163,31 @@ function deleteProduct() {
     }
 }
 
-/* Ajout bouton vider panier */
-
-    // insertion bouton suppression 
-const viderPanier = document.querySelector("#viderPanier");
+    /* insertion bouton suppression */
+const viderPanier = document.querySelector(".viderPanier");
 console.log(viderPanier);
 
-    // suppression key panier 
+    /* suppression key panier */
 viderPanier.addEventListener("click", (event) => {
     event.preventDefault();
 
-    // vider le local storage 
+    /* vider le local storage */
     localStorage.clear();
 
-    // alert "Attention votre panier va être vider !!!" 
-    alert("Attention votre panier va être vider !!!");
+    /* alert "Le panier a été vidé" */
+    alert("Le panier a été vidé");
 
-    // Rechargement de la page 
+    /* Rechargement de la page */
     window.location.reload();
     
 });
 
-/* AFFICHER UN FORMULAIRE ET ENVOYER LA COMMANDE AU BACKEND */
+   
 
-// Afficher un formulaire de commande si le panier n'est pas vide 
+
+/********************* AFFICHER UN FORMULAIRE ET ENVOYER LA COMMANDE AU BACKEND *********************/
+
+/* Afficher un formulaire de commande si le panier n'est pas vide */
 let formArea = document.getElementById('order-form');
 formArea.hidden = true;
 
@@ -226,7 +231,7 @@ function validateFormInput() {
         addressRegExp.test(document.getElementById('address').value) !== true ||
         cityRegExp.test(document.getElementById('city').value) !== true ||
         emailRegExp.test(document.getElementById('email').value) !== true) {
-            alert(`Désolé ! Nous n'avons pas pu traiter votre commande en raison d'une saisie incorrecte du formulaire. Veuillez vérifier vos saisies et réessayer !`)
+            alert(`Pardon ! Nous n'avons pas pu traiter votre commande en raison d'une saisie incorrecte du formulaire. Veuillez vérifier vos saisies et réessayer !`)
     } 
     // Si tout est valide, exécuter la fonction sendOrderToServer
     else {

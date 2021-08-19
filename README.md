@@ -15,9 +15,10 @@ l'ajouter à son panier ;</p>
 <p>● une page “panier” contenant un résumé des produits dans le panier, le prix
 total et un formulaire permettant de passer une commande. Les données
 du formulaire doivent être correctes et bien formatées avant d'être
-renvoyées au back-end.</p>
+renvoyées au back-end. Par exemple, pas de texte dans les champs date ;</p>
 <p>● une page de confirmation de commande, remerciant l'utilisateur pour sa
-commande, et indiquant l'identifiant de commande envoyé par le serveur.</p>
+commande, et indiquant le prix total et l'identifiant de commande envoyé
+par le serveur.</p>
 
 <h2>Produits présentés</h2>
 
@@ -27,6 +28,15 @@ commande, et indiquant l'identifiant de commande envoyé par le serveur.</p>
 <p>● caméras vintage ;</p>
 <p>● meubles en chêne.</p>
 
+<h2>Planification de tests unitaires</h2>
+
+<p>Planifiez une suite de tests unitaires pour couvrir au minimum 80 % de la base de
+code pour le front-end.</p>
+<p>Vous devrez formaliser un plan pour atteindre ce résultat,
+sans obligation d’écrire ces tests.</p>
+<p>Expliquez quelles lignes seront testées, et quels
+“test cases” seront envisagés.</p>
+
 <h2>Validation des données</h2>
 
 <p>Pour les routes POST, l’objet contact envoyé au serveur doit contenir les champs
@@ -35,19 +45,3 @@ firstName, lastName, address, city et email.</p>
 backend doit être un array de strings products.</p>
 <p>Les types de ces champs et leur
 présence doivent être validés avant l’envoi des données au serveur.</p>
-
-<h2>Technologies utilisées</h2>
-
-<p>HTML, CSS, JavaScript</p>
-
-<h2>Backend serveur</h2>
-
-<p>Repository GitHub à cloner: https://github.com/OpenClassrooms-Student-Center/JWDP5.git</p>
-
-<h4>Prérequis</h4>
-
-<p>Vous aurez besoin d'avoir Node et npm installés localement sur votre machine.</p>
-
-<h4>Installation</h4>
-
-<p>Clonez ce dépôt. À partir du dossier du projet, exécutez "npm install". Vous pouvez ensuite exécuter le serveur avec "node server". Le serveur doit s'exécuter sur localhost avec le port par défaut 3000. Si le serveur s'exécute sur un autre port pour une raison quelconque, cela est imprimé sur la console lorsque le serveur démarre, par ex. "Listening on port 3001".</p>
