@@ -12,10 +12,8 @@ const productQuantity = document.getElementById('description__quantity');
 (async function() {
     const productId = getProductId();
     const productInfo = await getProductInfo(productId);
-    
     insertProductInfo(productInfo);
     ready(productInfo);
-
 })();
 
 /* Obtenir l'ID du produit de l'URL*/
@@ -23,7 +21,7 @@ function getProductId() {
     return new URL(document.location).searchParams.get('id');
 };
 
-/* Appeler les données par ID de l'API du serveur  */
+/* Appeler les données par ID de l'API */
 function getProductInfo(productId) {
     return fetch(`http://localhost:3000/api/cameras/${productId}`)
         .then((responseHttp) => responseHttp.json())
@@ -51,9 +49,6 @@ function insertProductInfo(productInfo) {
 
 /* Afficher le nombre d'article(s) ajouté(s) au panier */ 
 onLoadCartNumbers();
-
-
-/********************* AJOUTER L'ARTICLE CHOISI AU PANIER *********************/
 
 /* Gestion du Local Storage */
 let productInCart = localStorage.getItem('Cart')
@@ -103,8 +98,8 @@ function addToCart(productInfo) {
     if (product) {
         product.quantity += parseInt(inputQuantity);
     } 
-    // Cas 2: Le même produit mais option différente - Ajouter un nouveau array
-    // Cas 3: Produit complétement différent - Ajouter un nouveau array
+    // Le même produit mais option différente - Ajouter un nouveau array
+    // Produit complétement différent - Ajouter un nouveau array
     else {
        // console.log(productInfo.price / 100)
         productInCart.push({
@@ -116,24 +111,21 @@ function addToCart(productInfo) {
             price: productInfo.price / 100
         });
     }
-    alert('Votre produit a bien été ajouté au panier !');
+    alert('Votre camera a bien été ajouté au panier !');
     localStorage.setItem('Cart', JSON.stringify(productInCart));
     window.location.reload();
 }
 
-/*
 /* Calculer le prix total - 'TotalPrice' du Local Storage */
-/*
-function addUpTotalPrice(productInfo) {
+function addUpTotalPrice() {
     let cartPrice = localStorage.getItem('TotalPrice');
     let inputQuantity = productQuantity.value;
     inputQuantity = parseInt(inputQuantity);
-    let inputPriceXQuantity = (productInfo.price / 100) * inputQuantity;
+    let inputPriceXQuantity = (parseFloat(productPrice.textContent) * inputQuantity);
     if (cartPrice !== null) {
         cartPrice = parseInt(cartPrice);
         localStorage.setItem('TotalPrice', cartPrice + inputPriceXQuantity);
     } else {
         localStorage.setItem('TotalPrice', inputPriceXQuantity);
     }
-    
-}*/
+}

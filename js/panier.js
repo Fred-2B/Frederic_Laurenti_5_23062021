@@ -1,11 +1,13 @@
 
-/* Afficher le nombre d'article(s) ajouté(s) au panier */ 
+/* Afficher le nombre d'article ajouté au panier */ 
 onLoadCartNumbers();
 
 
 /* Accéder au Local Storage et parser la valeur de 'Cart' */
 let productInCart = localStorage.getItem('Cart');
 productInCart = JSON.parse(productInCart);
+
+let cartTotalPrice = document.getElementById('cart-totalPrice');
 
 displayProductsInCart(); 
 displayTotalPrice();
@@ -26,7 +28,7 @@ function displayProductsInCart() {
     
         document.getElementById("cart-tableBody").appendChild(cloneElement);
     }
-    // Contrôle des boutons dans la colonne "Quantité"
+    // Contrôle des boutons des "Quantité"
     reduceQuantity();
     increaseQuantity();
     deleteProduct();
@@ -34,7 +36,6 @@ function displayProductsInCart() {
 
 /* Afficher le prix total */
 function displayTotalPrice() {
-
     let totalPrice = 0;
     let totalPriceInCart = localStorage.getItem('Cart');
     let cart = JSON.parse(totalPriceInCart);
@@ -158,31 +159,30 @@ function deleteProduct() {
     }
 }
 
-    /* insertion bouton suppression */
+/* Ajout bouton vider panier */
+
+    // insertion bouton suppression 
 const viderPanier = document.querySelector("#viderPanier");
 console.log(viderPanier);
 
-    /* suppression key panier */
+    // suppression key panier 
 viderPanier.addEventListener("click", (event) => {
     event.preventDefault();
 
-    /* vider le local storage */
+    // vider le local storage 
     localStorage.clear();
 
-    /* alert "Attention votre panier va être vider !!!" */
+    // alert "Attention votre panier va être vider !!!" 
     alert("Attention votre panier va être vider !!!");
 
-    /* Rechargement de la page */
+    // Rechargement de la page 
     window.location.reload();
     
 });
 
-   
+/* AFFICHER UN FORMULAIRE ET ENVOYER LA COMMANDE AU BACKEND */
 
-
-/********************* AFFICHER UN FORMULAIRE ET ENVOYER LA COMMANDE AU BACKEND *********************/
-
-/* Afficher un formulaire de commande si le panier n'est pas vide */
+// Afficher un formulaire de commande si le panier n'est pas vide 
 let formArea = document.getElementById('order-form');
 formArea.hidden = true;
 
@@ -226,7 +226,7 @@ function validateFormInput() {
         addressRegExp.test(document.getElementById('address').value) !== true ||
         cityRegExp.test(document.getElementById('city').value) !== true ||
         emailRegExp.test(document.getElementById('email').value) !== true) {
-            alert(`Pardon ! Nous n'avons pas pu traiter votre commande en raison d'une saisie incorrecte du formulaire. Veuillez vérifier vos saisies et réessayer !`)
+            alert(`Désolé ! Nous n'avons pas pu traiter votre commande en raison d'une saisie incorrecte du formulaire. Veuillez vérifier vos saisies et réessayer !`)
     } 
     // Si tout est valide, exécuter la fonction sendOrderToServer
     else {
