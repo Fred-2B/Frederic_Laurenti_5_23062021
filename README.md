@@ -15,10 +15,9 @@ l'ajouter à son panier ;</p>
 <p>● une page “panier” contenant un résumé des produits dans le panier, le prix
 total et un formulaire permettant de passer une commande. Les données
 du formulaire doivent être correctes et bien formatées avant d'être
-renvoyées au back-end. Par exemple, pas de texte dans les champs date ;</p>
+renvoyées au back-end.</p>
 <p>● une page de confirmation de commande, remerciant l'utilisateur pour sa
-commande, et indiquant le prix total et l'identifiant de commande envoyé
-par le serveur.</p>
+commande, et indiquant l'identifiant de commande envoyé par le serveur.</p>
 
 <h2>Produits présentés</h2>
 
