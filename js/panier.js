@@ -7,11 +7,6 @@ onLoadCartNumbers();
 let productInCart = localStorage.getItem('Cart');
 productInCart = JSON.parse(productInCart);
 
-/* Déclaration du lieu où les données doivent être insérées*/
-let cartTableBody = document.getElementById('cart-tableBody');
-let cartTotalPrice = document.getElementById('cart-totalPrice');
-
-
 displayProductsInCart(); 
 displayTotalPrice();
 
@@ -30,7 +25,7 @@ function displayProductsInCart() {
         cloneElement.getElementById("cart__quantity").textContent = productInCart[i].quantity;
     
         document.getElementById("cart-tableBody").appendChild(cloneElement);
-    };
+    }
     // Contrôle des boutons dans la colonne "Quantité"
     reduceQuantity();
     increaseQuantity();
@@ -164,7 +159,7 @@ function deleteProduct() {
 }
 
     /* insertion bouton suppression */
-const viderPanier = document.querySelector(".viderPanier");
+const viderPanier = document.querySelector("#viderPanier");
 console.log(viderPanier);
 
     /* suppression key panier */
@@ -172,10 +167,10 @@ viderPanier.addEventListener("click", (event) => {
     event.preventDefault();
 
     /* vider le local storage */
-    localStorage.removeItem("Cart");
+    localStorage.clear();
 
-    /* alert "Le panier a été vidé" */
-    alert("Le panier a été vidé");
+    /* alert "Attention votre panier va être vider !!!" */
+    alert("Attention votre panier va être vider !!!");
 
     /* Rechargement de la page */
     window.location.reload();
