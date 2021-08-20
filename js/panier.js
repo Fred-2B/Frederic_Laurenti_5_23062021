@@ -39,7 +39,6 @@ function displayProductsInCart() {
 
 /* Afficher le prix total */
 function displayTotalPrice() {
-
     let totalPrice = 0;
     let totalPriceInCart = localStorage.getItem('Cart');
     let cart = JSON.parse(totalPriceInCart);
@@ -175,19 +174,16 @@ viderPanier.addEventListener("click", (event) => {
     localStorage.clear();
 
     /* alert "Attention votre panier va être vider" */
-    alert("Attention votre panier va être vider");
+    alert("Attention votre panier va être vider !!!");
 
     /* Rechargement de la page */
     window.location.reload();
     
 });
 
-   
+/* AFFICHER UN FORMULAIRE ET ENVOYER LA COMMANDE */
 
-
-/********************* AFFICHER UN FORMULAIRE ET ENVOYER LA COMMANDE AU BACKEND *********************/
-
-/* Afficher un formulaire de commande si le panier n'est pas vide */
+/* Afficher un formulaire de commande si produit dans panier */
 let formArea = document.getElementById('order-form');
 formArea.hidden = true;
 
@@ -203,10 +199,6 @@ function displayOrderForm() {
     }
 }
 
-/* Validation des saisies d'utilisateur: Built-in Form Validation HTML */
-// L'attribut "required" de la balise <input> sur tous les champs
-// L'attribut "pattern" avec RegExp pour <input type="text">
-// L'attribut <input type="email">
 
 /* Valider les saisies du formulaire sur l'événement 'submit' */
 const orderButton = document.getElementById('formulaire');
@@ -216,7 +208,7 @@ orderButton.addEventListener('submit', (event) => {
 })      
 
 
-/* Tester les saisies à l'aide de RegExp */
+/* Tester RegExp */
 
 // Création d'expressions régulières
 const nameRegExp = /^[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ .'-]*$/

@@ -50,8 +50,7 @@ function insertProductInfo(productInfo) {
 /* Afficher le nombre d'article(s) ajouté(s) au panier */ 
 onLoadCartNumbers();
 
-
-/********************* AJOUTER L'ARTICLE CHOISI AU PANIER *********************/
+/* AJOUTER L'ARTICLE CHOISI AU PANIER */
 
 /* Gestion du Local Storage */
 let productInCart = localStorage.getItem('Cart')
@@ -114,7 +113,7 @@ function addToCart(productInfo) {
             price: productInfo.price / 100
         });
     }
-    alert('Votre produit a bien été ajouté au panier !');
+    alert('Votre produit va être ajouté au panier !');
     localStorage.setItem('Cart', JSON.stringify(productInCart));
     window.location.reload();
 }
