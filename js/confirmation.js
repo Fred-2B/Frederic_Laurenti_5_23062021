@@ -7,13 +7,6 @@ function displayOrderId() {
 
 }
 
-/* Afficher le prix total */
-displayTotalPrice()
-function displayTotalPrice() {
-    let totalPriceInCart = localStorage.getItem();
-    totalPriceInCart = JSON.parse(totalPriceInCart);
-    document.getElementById('totalprice').textContent = totalPriceInCart.toLocaleString("fr-FR", {style:"currency", currency:"EUR"});
-}
 
 /* Vider local storage */
-/*localStorage.clear();*/
+localStorage.clear();

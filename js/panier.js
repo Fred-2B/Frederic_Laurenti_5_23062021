@@ -223,7 +223,7 @@ function validateFormInput() {
         addressRegExp.test(document.getElementById('address').value) !== true ||
         cityRegExp.test(document.getElementById('city').value) !== true ||
         emailRegExp.test(document.getElementById('email').value) !== true) {
-            alert(`Pardon ! Nous n'avons pas pu traiter votre commande en raison d'une saisie incorrecte du formulaire. Veuillez vérifier vos saisies et réessayer !`)
+            alert(`Veuillez remplir les champs correctements avant de procéder à la validation de la commande !`)
     } 
     // Si tout est valide, exécuter la fonction sendOrderToServer
     else {
@@ -267,6 +267,6 @@ function sendOrderToServer() {
       window.location.href = "./confirmation.html"; 
     })
     .catch((error) => {
-        alert(`Il y a eu une erreur : ` + error )
+        alert(`Fatale erreur : ` + error )
     });
 }
