@@ -76,9 +76,9 @@ cartButton.addEventListener('click', () => {
 /* Augmenter le nombre de 'QuantityInCart' du Local Storage en fonction de 'quantityInput' et afficher la valeur finale sur l'icône de Nav */
 function modifyCartNumbers() {
     let productNumbers = localStorage.getItem('QuantityInCart');
-    productNumbers = parseInt(productNumbers); // String -> Number
+    productNumbers = parseInt(productNumbers); // Number
     let quantityInput = document.getElementById('description__quantity').value;
-    quantityInput = parseInt(quantityInput); // String -> Number
+    quantityInput = parseInt(quantityInput); //  Number
     if (productNumbers) {
         localStorage.setItem('QuantityInCart', productNumbers + quantityInput);
     } else {
@@ -113,14 +113,13 @@ function addToCart(productInfo) {
             price: productInfo.price / 100
         });
     }
-    alert('Votre produit va être ajouté au panier !');
+    alert('Votre produit a bien été ajouté au panier !');
     localStorage.setItem('Cart', JSON.stringify(productInCart));
     window.location.reload();
 }
 
 
-/* Calculer le prix total - 'TotalPrice' du Local Storage */
-
+/* Calculer le prix total */
 function addUpTotalPrice(productInfo) {
     let cartPrice = localStorage.getItem('TotalPrice');
     let inputQuantity = productQuantity.value;
@@ -132,5 +131,4 @@ function addUpTotalPrice(productInfo) {
     } else {
         localStorage.setItem('TotalPrice', inputPriceXQuantity);
     }
-    
 }

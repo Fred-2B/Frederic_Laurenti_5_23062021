@@ -1,4 +1,4 @@
-/* Afficher tous les produits */
+/* Afficher les produits */
 (async function() {
     const products = await getProducts();
     for (product of products) {
@@ -6,7 +6,7 @@
     };
 })();
 
-/* Appeler les données de l'API du serveur */
+/* Appele les données de l'API du serveur */
 function getProducts() {
     const URL = "http://localhost:3000/api/cameras";
     return fetch(URL)
@@ -33,4 +33,4 @@ function createCards(product) {
 
 
 /* Afficher le nombre d'article(s) ajouté(s) au panier */ 
-onLoadCartNumbers();
+/*onLoadCartNumbers();*/

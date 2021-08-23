@@ -24,14 +24,14 @@ function displayProductsInCart() {
     
         cloneElement.getElementById("cart__image").src = productInCart[i].image;
         cloneElement.getElementById("cart__name").textContent = productInCart[i].name;
-        cloneElement.getElementById("cart__id").textContent = productInCart[i].id;
+        cloneElement.getElementById("cart__id").textContent = `Réf :  ` +  productInCart[i].id;
         cloneElement.getElementById("cart__price").textContent = (productInCart[i].price).toLocaleString("fr-FR", {style:"currency", currency:"EUR"});
         cloneElement.getElementById("cart__option").textContent = productInCart[i].option;
         cloneElement.getElementById("cart__quantity").textContent = productInCart[i].quantity;
     
         document.getElementById("cart-tableBody").appendChild(cloneElement);
     }
-    // Contrôle des boutons dans la colonne "Quantité"
+    // Contrôle des boutons "Quantité"
     reduceQuantity();
     increaseQuantity();
     deleteProduct();
@@ -163,11 +163,11 @@ function deleteProduct() {
 }
 
     /* insertion bouton suppression */
-const viderPanier = document.querySelector(".viderPanier");
-console.log(viderPanier);
+const deleteBasket = document.querySelector(".viderPanier");
+console.log(deleteBasket);
 
     /* suppression key panier */
-viderPanier.addEventListener("click", (event) => {
+    deleteBasket.addEventListener("click", (event) => {
     event.preventDefault();
 
     /* vider le local storage */
@@ -181,9 +181,9 @@ viderPanier.addEventListener("click", (event) => {
     
 });
 
-/* AFFICHER UN FORMULAIRE ET ENVOYER LA COMMANDE */
+/* AFFICHER UN FORMULAIRE ET ENVOYE DE LA COMMANDE */
 
-/* Afficher un formulaire de commande si produit dans panier */
+/* Affiche un formulaire de commande si produit dans panier */
 let formArea = document.getElementById('order-form');
 formArea.hidden = true;
 
@@ -200,7 +200,7 @@ function displayOrderForm() {
 }
 
 
-/* Valider les saisies du formulaire sur l'événement 'submit' */
+/* Valide les saisies du formulaire sur l'événement 'submit' */
 const orderButton = document.getElementById('formulaire');
 orderButton.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -208,7 +208,7 @@ orderButton.addEventListener('submit', (event) => {
 })      
 
 
-/* Tester RegExp */
+/* Teste RegExp */
 
 // Création d'expressions régulières
 const nameRegExp = /^[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ .'-]*$/
@@ -223,7 +223,7 @@ function validateFormInput() {
         addressRegExp.test(document.getElementById('address').value) !== true ||
         cityRegExp.test(document.getElementById('city').value) !== true ||
         emailRegExp.test(document.getElementById('email').value) !== true) {
-            alert(`Veuillez remplir les champs correctements avant de procéder à la validation de la commande !`)
+            alert(`Veuillez remplir les champs correctements pour procéder à la validation de la commande !`)
     } 
     // Si tout est valide, exécuter la fonction sendOrderToServer
     else {
@@ -262,7 +262,7 @@ function sendOrderToServer() {
     })
     .then((response) => response.json())
     .then((data) => {
-      localStorage.clear();
+      /*localStorage.clear();*/
       localStorage.setItem('orderId', data.orderId);
       window.location.href = "./confirmation.html"; 
     })
