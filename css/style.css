@@ -7,10 +7,11 @@ html, body {
 }
 
     /* Main */
-    #products, #products__description, #cart, #order-form, #confirmation {
+
+#products, #products__description, #cart, #order-form, #confirmation {
         max-width: 1280px;
         margin: 0 auto;
-    }
+}
 
     /* NAV */
 
@@ -62,6 +63,7 @@ header {
 }
 
     /* Products */
+
 #cards {
     display: flex;
     flex-direction: row;
@@ -87,22 +89,27 @@ header {
     width: 100%;
     height: auto;
 }
+
 .card__description--info {
     padding-left: 10px;
 }
+
 #description__id {
     font-size: 0.8em;
 }
+
 #description__option {
     width: 180px;
     height: 25px;
 }
+
 #description__quantity {
     width: 172px;
     height: 25px;
 }
 
     /* Cart */
+
 .cart-img {
     width: 100px;
     height: 65px;
@@ -156,11 +163,13 @@ form {
 }
 
 /* Confirmation */
+
 .confirmation > i {
     font-size: 5em;
     color: green;
     margin: 30px 0 40px 0;
 } 
+
 .title-confirmation{
     color:black;
     font-family: 'Handlee', cursive;
@@ -179,14 +188,14 @@ form {
         }
     /* Main */
         /* index.html */
-            /* Section 1: Presentation */
+            /* Presentation */
                 .jmb-text h1 {
                     font-size: 5em;
                 }
                 .jmb-text h2 {
                     font-size: 1.73em;
                 }
-            /* Section 2: Products */
+            /* Products */
                 #cards {
                     flex-direction: row;
                     flex-wrap: wrap;
@@ -202,7 +211,7 @@ form {
                     font-size: 1.2em;
                 }
         /* produit.html */
-            /* Section 4: Product description */
+            /* Product description */
                 .customer_input {
                     display: flex;
                     flex-direction: row;
@@ -221,8 +230,7 @@ form {
                 }
 }
 
-
-    /* Desktop */
+     /* Desktop */
     @media screen and (min-width: 992px) {
         /* Header */  
             nav img {
@@ -238,14 +246,14 @@ form {
                 margin: 0 auto;
             }
             /* index.html */
-                /* Section 1: Presentation */
+                /* Presentation */
                     .jmb-text h1 {
                         font-size: 6.5em;
                     }
                     .jmb-text h2 {
                         font-size: 1.5em;
                     }
-                /* Section 2: Products */
+                /* Products */
                     #cards {
                         flex-direction: row;
                         flex-wrap: wrap;
@@ -258,7 +266,7 @@ form {
                         max-height: 305px;
                     }
             /* produit.html */
-                /* Section 4: Product description */
+                /* Product description */
                     .card__description {
                         display: flex;
                         flex-direction: row;

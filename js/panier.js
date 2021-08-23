@@ -32,8 +32,8 @@ function displayProductsInCart() {
         document.getElementById("cart-tableBody").appendChild(cloneElement);
     }
     // Contrôle des boutons "Quantité"
-    reduceQuantity();
-    increaseQuantity();
+    modifyQuantity('increase');
+    modifyQuantity('decrease');
     deleteProduct();
 }
 
@@ -51,43 +51,47 @@ function displayTotalPrice() {
 }
 
 
-// Boutons dans la colonne "Quantité"
+// Boutons "Quantité"
 /* Réduire la quantité */
-function reduceQuantity() {
-    let quantityMinus = document.querySelectorAll('#quantityMinus');
-    for (let m = 0; m < quantityMinus.length; m++) {
-        quantityMinus[m].addEventListener('click', (event) => {
+function modifyQuantity(type) {
+    let quantity = document.querySelectorAll(type == 'increase' ? '#quantityPlus' : '#quantityMinus');
+    for (let m = 0; m < quantity.length; m++) {
+        quantity[m].addEventListener('click', (event) => {
             event.preventDefault();
             let idOfProductToReduce = productInCart[m].id;
             let optionOfProductToReduce = productInCart[m].option;
             const unitPrice = productInCart[m].price;
-            
+
             // Modifier 'Cart'
-            // Si (la quantité == 1 ) : Supprimer le produit
-            if (productInCart[m].quantity == 1) {
-                productInCart = productInCart.filter( (el) => el.id !== idOfProductToReduce || el.option !== optionOfProductToReduce );
-                localStorage.setItem('Cart', JSON.stringify(productInCart));
-            } 
-            // Else (la quantité >= 2) : Réduire 1 de quantité de produit : 'Cart'
-            else {
-                let product = productInCart.find(
-                    (obj) => obj.id === idOfProductToReduce && obj.option === optionOfProductToReduce
-                );
-                if (product) {
-                    product.quantity = product.quantity - 1; 
-                } 
-                localStorage.setItem('Cart', JSON.stringify(productInCart));
-            }
-            
+            let product = productInCart.find(
+                (obj) => obj.id === idOfProductToReduce && obj.option === optionOfProductToReduce
+            );
+            if (product) {
+                // Cas 'INCREASE'
+                if (type == 'increase') {
+                    product.quantity = product.quantity + 1;
+                }
+                // Cas 'DECREASE'
+                // Si (la quantité == 1 ) : Supprimer le produit
+                else if (productInCart[m].quantity == 1) {
+                    productInCart = productInCart.filter((el) => el.id !== idOfProductToReduce || el.option !== optionOfProductToReduce);
+                }
+                // Else (la quantité >= 2) : Réduire 1 de quantité de produit
+                else {
+                    product.quantity = product.quantity - 1;
+                }
+            };
+            localStorage.setItem('Cart', JSON.stringify(productInCart));
+
             // Modifier 'QuantityInCart'
             let productNumbers = localStorage.getItem('QuantityInCart');
             productNumbers = parseInt(productNumbers); // String -> Number
-            localStorage.setItem('QuantityInCart', productNumbers - 1);
-            
+            localStorage.setItem('QuantityInCart', type == 'increase' ? productNumbers + 1 : productNumbers - 1);
+
             // Modifier 'TotalPrice'
             let cartPrice = localStorage.getItem('TotalPrice');
             cartPrice = parseInt(cartPrice);
-            localStorage.setItem('TotalPrice', cartPrice - unitPrice);
+            localStorage.setItem('TotalPrice', type == 'increase' ? cartPrice + unitPrice : cartPrice - unitPrice);
 
             // Rechargement de la page
             window.location.reload();
@@ -181,7 +185,7 @@ console.log(deleteBasket);
     
 });
 
-/* AFFICHER UN FORMULAIRE ET ENVOYE DE LA COMMANDE */
+/* AFFICHER UN FORMULAIRE */
 
 /* Affiche un formulaire de commande si produit dans panier */
 let formArea = document.getElementById('order-form');
