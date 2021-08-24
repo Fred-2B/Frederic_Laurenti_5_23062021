@@ -113,7 +113,7 @@ function addToCart(productInfo) {
             price: productInfo.price / 100
         });
     }
-    alert('Votre produit a bien été ajouté au panier !');
+    alert('Votre produit va être ajouté au panier !');
     localStorage.setItem('Cart', JSON.stringify(productInCart));
     window.location.reload();
 }

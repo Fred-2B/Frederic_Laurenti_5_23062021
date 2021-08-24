@@ -3,20 +3,20 @@
 onLoadCartNumbers();
 
 
-/* Accéder au Local Storage et parser la valeur de 'Cart' */
+/* Accéder au Local Storage */
 let productInCart = localStorage.getItem('Cart');
 productInCart = JSON.parse(productInCart);
 
-/* Déclaration du lieu où les données doivent être insérées*/
-let cartTableBody = document.getElementById('cart-tableBody');
-let cartTotalPrice = document.getElementById('cart-totalPrice');
+/* Déclaration des données insérées*/
+let cartTableBody = document.getElementById('basketTable');
+let cartTotalPrice = document.getElementById('basket-totalPrice');
 
 
 displayProductsInCart(); 
 displayTotalPrice();
 
 
-/* Afficher un résumé des produits dans le panier */
+/* Affiche les produits du panier */
 function displayProductsInCart() {
     for (let i = 0; i < productInCart.length; i ++) {
         const templateCart = document.getElementById('templateCart');
@@ -29,7 +29,7 @@ function displayProductsInCart() {
         cloneElement.getElementById("cart__option").textContent = productInCart[i].option;
         cloneElement.getElementById("cart__quantity").textContent = productInCart[i].quantity;
     
-        document.getElementById("cart-tableBody").appendChild(cloneElement);
+        document.getElementById("basketTable").appendChild(cloneElement);
     }
     // Contrôle des boutons "Quantité"
     reduceQuantity();
@@ -37,7 +37,7 @@ function displayProductsInCart() {
     deleteProduct();
 }
 
-// Boutons "Quantité"
+
 /* Réduire la quantité */
 function reduceQuantity() {
     let quantityMinus = document.querySelectorAll('#quantityMinus');
@@ -175,7 +175,7 @@ function displayTotalPrice() {
         console.log(cart[i])
         totalPrice += cart[i].price * cart[i].quantity;
     }
-    document.getElementById('cart-totalPrice').innerHTML = totalPrice.toLocaleString("fr-FR", {style:"currency", currency:"EUR"})
+    document.getElementById('basket-totalPrice').innerHTML = totalPrice.toLocaleString("fr-FR", {style:"currency", currency:"EUR"})
 }
 
 /* Affiche un formulaire de commande si produit dans panier */
