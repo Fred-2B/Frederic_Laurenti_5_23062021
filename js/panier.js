@@ -22,12 +22,12 @@ function displayProductsInCart() {
         const templateCart = document.getElementById('templateCart');
         const cloneElement = document.importNode(templateCart.content, true);
     
-        cloneElement.getElementById("cart__image").src = productInCart[i].image;
-        cloneElement.getElementById("cart__name").textContent = productInCart[i].name;
-        cloneElement.getElementById("cart__id").textContent = `Réf :  ` +  productInCart[i].id;
-        cloneElement.getElementById("cart__price").textContent = (productInCart[i].price).toLocaleString("fr-FR", {style:"currency", currency:"EUR"});
-        cloneElement.getElementById("cart__option").textContent = productInCart[i].option;
-        cloneElement.getElementById("cart__quantity").textContent = productInCart[i].quantity;
+        cloneElement.getElementById("basket__image").src = productInCart[i].image;
+        cloneElement.getElementById("basket__name").textContent = productInCart[i].name;
+        cloneElement.getElementById("basket__id").textContent = `Réf :  ` +  productInCart[i].id;
+        cloneElement.getElementById("basket__price").textContent = (productInCart[i].price).toLocaleString("fr-FR", {style:"currency", currency:"EUR"});
+        cloneElement.getElementById("basket__option").textContent = productInCart[i].option;
+        cloneElement.getElementById("basket__quantity").textContent = productInCart[i].quantity;
     
         document.getElementById("basketTable").appendChild(cloneElement);
     }
@@ -37,7 +37,7 @@ function displayProductsInCart() {
     deleteProduct();
 }
 
-
+// Boutons "Quantité"
 /* Réduire la quantité */
 function reduceQuantity() {
     let quantityMinus = document.querySelectorAll('#quantityMinus');
@@ -67,7 +67,7 @@ function reduceQuantity() {
             
             // Modifier 'QuantityInCart'
             let productNumbers = localStorage.getItem('QuantityInCart');
-            productNumbers = parseInt(productNumbers); // String -> Number
+            productNumbers = parseInt(productNumbers); 
             localStorage.setItem('QuantityInCart', productNumbers - 1);
             
             // Modifier 'TotalPrice'
@@ -127,13 +127,13 @@ function deleteProduct() {
             let quantityOfProductToDelete = productInCart[d].quantity;
             let priceOfProductToDelete = productInCart[d].price;
             
-            // Filtrer des items afin de laisser des produits différents uniquement
+            // Filtrer afin de laisser des produits différents uniquement
             productInCart = productInCart.filter( (el) => el.id !== idOfProductToDelete || el.option !== optionOfProductToDelete );
             localStorage.setItem('Cart', JSON.stringify(productInCart));
             
             // Modifier 'QuantityInCart'
             let productNumbers = localStorage.getItem('QuantityInCart');
-            productNumbers = parseInt(productNumbers); // String -> Number
+            productNumbers = parseInt(productNumbers); 
             localStorage.setItem('QuantityInCart', productNumbers - quantityOfProductToDelete);
             
             // Modifier 'TotalPrice'
@@ -160,7 +160,7 @@ console.log(deleteBasket);
     localStorage.clear();
 
     /* alert "Attention votre panier va être vider" */
-    alert("Attention votre panier va être vider !!!");
+    alert("Attention vous êtes sur le point de vider votre panier !!!");
 
     /* Rechargement de la page */
     window.location.reload();
@@ -203,7 +203,7 @@ orderButton.addEventListener('submit', (event) => {
 })      
 
 
-/* Teste RegExp */
+
 
 // Création d'expressions régulières
 const nameRegExp = /^[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ]{1,}[a-zàâäéèêëîïôöùûüÿçæœA-ZÀÂÄÉÈÊËÎÏÔÖÙÛÜŸÇÆ .'-]*$/
@@ -256,11 +256,10 @@ function sendOrderToServer() {
     })
     .then((response) => response.json())
     .then((data) => {
-      /*localStorage.clear();*/
       localStorage.setItem('orderId', data.orderId);
       window.location.href = "./confirmation.html"; 
     })
     .catch((error) => {
-        alert(`Fatale erreur : ` + error )
+        alert(`Erreur : ` + error )
     });
 }

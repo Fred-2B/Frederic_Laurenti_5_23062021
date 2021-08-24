@@ -30,7 +30,3 @@ function createCards(product) {
     
     document.getElementById("cards").appendChild(cloneElement);
 };
-
-
-/* Afficher le nombre d'article(s) ajouté(s) au panier */ 
-/*onLoadCartNumbers();*/
