@@ -32,66 +32,48 @@ function displayProductsInCart() {
         document.getElementById("cart-tableBody").appendChild(cloneElement);
     }
     // Contrôle des boutons "Quantité"
-    modifyQuantity('increase');
-    modifyQuantity('decrease');
+    reduceQuantity();
+    increaseQuantity();
     deleteProduct();
 }
 
-/* Afficher le prix total */
-function displayTotalPrice() {
-    let totalPrice = 0;
-    let totalPriceInCart = localStorage.getItem('Cart');
-    let cart = JSON.parse(totalPriceInCart);
-    for (i= 0; i < cart.length ; i++){
-        console.log(cart[i])
-        totalPrice += cart[i].price * cart[i].quantity;
-    }
-    document.getElementById('cart-totalPrice').innerHTML = totalPrice.toLocaleString("fr-FR", {style:"currency", currency:"EUR"})
-
-}
-
-
 // Boutons "Quantité"
 /* Réduire la quantité */
-function modifyQuantity(type) {
-    let quantity = document.querySelectorAll(type == 'increase' ? '#quantityPlus' : '#quantityMinus');
-    for (let m = 0; m < quantity.length; m++) {
-        quantity[m].addEventListener('click', (event) => {
+function reduceQuantity() {
+    let quantityMinus = document.querySelectorAll('#quantityMinus');
+    for (let m = 0; m < quantityMinus.length; m++) {
+        quantityMinus[m].addEventListener('click', (event) => {
             event.preventDefault();
             let idOfProductToReduce = productInCart[m].id;
             let optionOfProductToReduce = productInCart[m].option;
             const unitPrice = productInCart[m].price;
-
+            
             // Modifier 'Cart'
-            let product = productInCart.find(
-                (obj) => obj.id === idOfProductToReduce && obj.option === optionOfProductToReduce
-            );
-            if (product) {
-                // Cas 'INCREASE'
-                if (type == 'increase') {
-                    product.quantity = product.quantity + 1;
-                }
-                // Cas 'DECREASE'
-                // Si (la quantité == 1 ) : Supprimer le produit
-                else if (productInCart[m].quantity == 1) {
-                    productInCart = productInCart.filter((el) => el.id !== idOfProductToReduce || el.option !== optionOfProductToReduce);
-                }
-                // Else (la quantité >= 2) : Réduire 1 de quantité de produit
-                else {
-                    product.quantity = product.quantity - 1;
-                }
-            };
-            localStorage.setItem('Cart', JSON.stringify(productInCart));
-
+            // Si (la quantité == 1 ) : Supprimer le produit
+            if (productInCart[m].quantity == 1) {
+                productInCart = productInCart.filter( (el) => el.id !== idOfProductToReduce || el.option !== optionOfProductToReduce );
+                localStorage.setItem('Cart', JSON.stringify(productInCart));
+            } 
+            // Else (la quantité >= 2) : Réduire 1 de quantité de produit : 'Cart'
+            else {
+                let product = productInCart.find(
+                    (obj) => obj.id === idOfProductToReduce && obj.option === optionOfProductToReduce
+                );
+                if (product) {
+                    product.quantity = product.quantity - 1; 
+                } 
+                localStorage.setItem('Cart', JSON.stringify(productInCart));
+            }
+            
             // Modifier 'QuantityInCart'
             let productNumbers = localStorage.getItem('QuantityInCart');
             productNumbers = parseInt(productNumbers); // String -> Number
-            localStorage.setItem('QuantityInCart', type == 'increase' ? productNumbers + 1 : productNumbers - 1);
-
+            localStorage.setItem('QuantityInCart', productNumbers - 1);
+            
             // Modifier 'TotalPrice'
             let cartPrice = localStorage.getItem('TotalPrice');
             cartPrice = parseInt(cartPrice);
-            localStorage.setItem('TotalPrice', type == 'increase' ? cartPrice + unitPrice : cartPrice - unitPrice);
+            localStorage.setItem('TotalPrice', cartPrice - unitPrice);
 
             // Rechargement de la page
             window.location.reload();
@@ -182,10 +164,19 @@ console.log(deleteBasket);
 
     /* Rechargement de la page */
     window.location.reload();
-    
 });
 
-/* AFFICHER UN FORMULAIRE */
+/* Afficher le prix total */
+function displayTotalPrice() {
+    let totalPrice = 0;
+    let totalPriceInCart = localStorage.getItem('Cart');
+    let cart = JSON.parse(totalPriceInCart);
+    for (i= 0; i < cart.length ; i++){
+        console.log(cart[i])
+        totalPrice += cart[i].price * cart[i].quantity;
+    }
+    document.getElementById('cart-totalPrice').innerHTML = totalPrice.toLocaleString("fr-FR", {style:"currency", currency:"EUR"})
+}
 
 /* Affiche un formulaire de commande si produit dans panier */
 let formArea = document.getElementById('order-form');
@@ -229,7 +220,6 @@ function validateFormInput() {
         emailRegExp.test(document.getElementById('email').value) !== true) {
             alert(`Veuillez remplir les champs correctements pour procéder à la validation de la commande !`)
     } 
-    // Si tout est valide, exécuter la fonction sendOrderToServer
     else {
         sendOrderToServer();
     }

@@ -16,14 +16,25 @@ html, body {
     /* NAV */
 
 .navbar-brand {
-    font-size: 40px;
+    font-size: 45px;
     font-family: 'Kaushan Script';
     color: white;
 }
 
+.nav-icons {
+    display: flex;
+}
+
+.nav-link i {
+    border: 2px solid white;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
 #nav-icon {
     color: white;
-    font-size: 30px;
+    font-size: 18px;
 }
 
 header {
