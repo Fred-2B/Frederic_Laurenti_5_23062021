@@ -3,6 +3,18 @@
 <p>Orinoco, une entreprise de commerce en ligne.</p>
 <p>Son credo ? Se démarquer des grands site e-commerce comme Amazon en créant des applications thématiques ne vendant qu’un seul groupe de produits</p>
 
+<h2>Backend serveur</h2>
+
+<p>Repository GitHub à cloner: https://github.com/OpenClassrooms-Student-Center/JWDP5.git</p>
+
+<h4>Prérequis</h4>
+
+<p>Vous aurez besoin d'avoir Node et npm installés localement sur votre machine.</p>
+
+<h4>Installation</h4>
+
+<p>Clonez ce dépôt. À partir du dossier du projet, exécutez "npm install". Vous pouvez ensuite exécuter le serveur avec "node server". Le serveur doit s'exécuter sur localhost avec le port par défaut 3000. Si le serveur s'exécute sur un autre port pour une raison quelconque, cela est imprimé sur la console lorsque le serveur démarre, par ex. "Listening on port 3001".</p>
+
 <h2>Architecture générale</h2>
 
 <p>L’application web sera composée de 4 pages :</p>
@@ -40,14 +52,4 @@ présence doivent être validés avant l’envoi des données au serveur.</p>
 
 <p>HTML, CSS, JavaScript</p>
 
-<h2>Backend serveur</h2>
 
-<p>Repository GitHub à cloner: https://github.com/OpenClassrooms-Student-Center/JWDP5.git</p>
-
-<h4>Prérequis</h4>
-
-<p>Vous aurez besoin d'avoir Node et npm installés localement sur votre machine.</p>
-
-<h4>Installation</h4>
-
-<p>Clonez ce dépôt. À partir du dossier du projet, exécutez "npm install". Vous pouvez ensuite exécuter le serveur avec "node server". Le serveur doit s'exécuter sur localhost avec le port par défaut 3000. Si le serveur s'exécute sur un autre port pour une raison quelconque, cela est imprimé sur la console lorsque le serveur démarre, par ex. "Listening on port 3001".</p>
